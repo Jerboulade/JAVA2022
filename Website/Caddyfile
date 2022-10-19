@@ -1,0 +1,9 @@
+{
+	debug
+	auto_https off
+	http_port 8080
+}
+localhost:8080 {
+	root webdev
+	file_server
+}

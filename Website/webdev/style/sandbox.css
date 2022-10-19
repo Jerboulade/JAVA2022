@@ -1,0 +1,33 @@
+body {
+	/* background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); */
+}
+
+form{
+
+}
+
+.button{
+	flex-direction: column;
+	font-family: "Montserrat", sans-serif;
+	padding: 6px 14px;
+	border-radius: 6px;
+	border: none;
+	background: var(--darkgold);
+	color: white;
+}
+
+::placeholder{
+	color: lightgray;
+	/* color: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); */
+
+}
+
+.input_area{
+	margin-bottom: 1%;
+	margin-top: 1%;
+	width: 100%;
+	/* border-style: solid;
+	border-radius: 15% */
+	/* color: var(--darkgold); */
+
+}

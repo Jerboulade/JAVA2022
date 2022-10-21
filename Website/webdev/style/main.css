@@ -16,13 +16,17 @@ html{
 	/* min-height: 100vh; */
 	/* min-height: 100%; */
 	/* font-family: "Ubuntu-M", Helvetica, Arial, sans-serif; */
-	line-height: 1.6;
+	/* line-height: 1.6; */
 	-webkit-font-smoothing: antialiased;
 	margin-top: 60px;
 	/* background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); */
 }
 
 body{
+	display: flex;
+	flex-direction: column;
+	/* margin-top: 60px; */
+	margin-bottom: 60px;
 	/* position: relative */
 	/* margin: 0; */
 	/* min-height: 100vh; */
@@ -65,14 +69,6 @@ h4{
 	color: var(--darkgold);
 }
 
-.container{
-	/* position: relative; */
-	/* border: solid; */
-	/* min-height: 100vh; */
-	width: 70%;
-	margin: auto;
-}
-
 .center{
 	text-align: center;
 }
@@ -94,6 +90,78 @@ h4{
 	height: 10%;
 }
 
+.container{
+	/* position: relative; */
+	/* border: solid; */
+	/* min-height: 100vh; */
+	width: 80%;
+	margin: auto;
+}
+
+.central{
+	display: flex;
+	flex-direction: column;
+}
+
+
+@media screen and (min-width : 600px) and (orientation : landscape){
+	aside{
+		background-color: lightgray;
+	}
+}
+
+@media screen and (min-width : 1000px) and (orientation : landscape){
+	aside{
+		background-color: lightgray;
+	}
+}
+
+@media screen and (min-width : 1024px) and (orientation : landscape){
+	.central{
+		flex-direction: row;
+	}
+}
+
+/* @media screen and (min-width : 1024px) and (orientation : landscape){
+	.logo_box{
+		width: 2.5rem;
+	}
+} */
+
+main{
+	/* flex-grow: 10; */
+	width: 70%;
+	flex-direction: row;
+	/* background-color: lightpink; */
+}
+
+aside{
+	/* background-color: lightgray; */
+	/* flex-direction: column; */
+	/* flex-grow: 1; */
+	width: 30%;
+	flex-direction: row;
+	align-items: center;
+	/* height: 50px; */
+	min-height: 100%;
+	/* width: 30%; */
+	margin-top: 60px;
+	position: fixed;
+	top: 0;
+	right: 0;
+	/* bottom: 0; */
+}
+
+aside > section {
+	margin-bottom: 4rem;
+	/* position: fixed; */
+
+}
+
+aside > a{
+	text-decoration: none;
+}
+
 .navbar{
 	display: flex;
 	align-items: center;
@@ -112,11 +180,13 @@ h4{
 	justify-content: space-evenly;
 	/* background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); */
     background-color: lightgray;
-	margin-top: 40px;
-	height: 80px;
+	/* margin-top: 60px; */
+	height: 60px;
 	width: 100%;
-	position: absolute;
-	bottom: auto;
+	/* position: relative; */
+	/* position: absolute; */
+	position: fixed;
+	bottom: 0;
 	right: 0;
 }
 

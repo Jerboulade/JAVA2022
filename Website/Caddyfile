@@ -4,6 +4,6 @@
 	http_port 8080
 }
 localhost:8080 {
-	root webdev
+	root labo1
 	file_server
 }

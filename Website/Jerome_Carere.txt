@@ -1,0 +1,14 @@
+CARERE Jérôme
+
+1.	Pour que le site puisse être fonctionnel sur d'autres machines.
+	Le chemin absolu de la racine du site n'étant pas le même chez tout le monde.
+2.	Pour avoir un projet ordonné sur lequel d'autres personnes pourront travailler plus facilement
+3.	Non
+4.	145.40.68.75
+5.	<head>
+6.	developer.mozilla.org
+7.	HTML: permet de structurer les pages d'un site web.
+	CSS:  permet de modifier le style du contenu des pages.
+8.	Permet de signifier au moteur de rechercher le type de document à traiter
+9.	<body>
+10.	display : flex;

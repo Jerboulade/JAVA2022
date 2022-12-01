@@ -1,0 +1,34 @@
+début tva
+
+VARIABLES LOCALES
+VAR taux : N <- 0
+VAR option : N <- 0
+VAR prix : N <- 0
+FIN VARIABLES LOCALES
+
+Afficher " Votre choix : "
+Saisir option
+Afficher " Prix (hors TVA) : "
+Saisir prix
+SI (option < 0 OU option > 4)
+	ALORS
+	Afficher "Option invalide."
+SINON
+	SI (option == 1)
+		ALORS
+		taux <- 6
+	SI (option == 2)
+		ALORS
+		taux <- 12
+	SI (option == 3)
+		ALORS
+		taux <- 21
+FIN SI
+SI (option > 0 ET option <= 4)
+	ALORS
+	Afficher "Le taux de TVA vaut : ", taux, "%"
+	Afficher "Le montant de la TVA est : ", (prix / 100 * taux), "€"
+	Afficher "Le prix T.V.A.C vaut : ", prix + (prix / 100 * taux), "€"
+FIN SI
+
+fin tva

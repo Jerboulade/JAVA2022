@@ -1,11 +1,12 @@
 package be.technifutur.sudoku.sudo9x9;
 
-import be.technifutur.sudoku.GridModel;
+import be.technifutur.sudoku.SudokuModel;
 
-public class GridModel9 implements GridModel
+import java.util.Arrays;
+
+public class GridModel9 implements SudokuModel
 {
-    public char[][] grid= new char[9][9];
-    //public static final Character EMPTY = '0';
+    public Character[] grid = new Character[9 * 9];
     public String  format = """
             +----------+----------+----------+
             |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |
@@ -22,16 +23,23 @@ public class GridModel9 implements GridModel
             +----------+----------+----------+
             """;
 
+    public GridModel9(){
+        Arrays.fill(grid, '.');
+    }
+
     @Override
     public void setValue(int i, int j, char val) {
-        if (i > 0 && i < 10 && j > 0 && j < 10)
-            grid[i - 1][j - 1] = val;
+        i--;
+        j--;
+        if (isValidPosition(i, j) && isValidValue(val))
+            grid[(i * 9) + j] = val;
     }
 
     @Override
     public char getValue(int i, int j) {
-
-        return(grid[i - 1][j - 1]);
+        i--;
+        j--;
+        return(isValidPosition(i, j) ? grid[(i * 9) + j] : 0);
     }
 
     @Override
@@ -41,21 +49,20 @@ public class GridModel9 implements GridModel
 
     @Override
     public Boolean isValidPosition(int i, int j){
-        return (false);
+
+        return (i >= 1 && i <= 9 && j >= 1 && j <= 9);
     }
 
     @Override
     public Boolean isValidValue(char c){
-        return (false);
+
+        return ((c >= '1' && c <= '9') || c == EMPTY);
     }
 
-    public void fillGrid(char[][] tab)
+    public void fillGrid(Character[] tab)
     {
-        for (int i = 0; i < 9; i++)
-        {
-            for (int j = 0; j < 9; j++)
-                grid[i][j] = tab[i][j];
-        }
+        for (int i = 0; i < 81; i++)
+                grid[i]= tab[i];
     }
 
 

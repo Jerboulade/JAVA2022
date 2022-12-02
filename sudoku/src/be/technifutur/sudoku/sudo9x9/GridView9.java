@@ -1,37 +1,29 @@
 package be.technifutur.sudoku.sudo9x9;
+import be.technifutur.sudoku.SudokuView;
+
 import java.util.Arrays;
 import java.lang.reflect.Array;
 
-public class GridView9
+public class GridView9 implements SudokuView
 {
     //char[][] grid= new char[9][9];
     //char[] line
+    GridModel9 mod;
 
-    public void  showGrid(GridModel9 grid)
+    public GridView9(GridModel9 mod){
+        this.mod = mod;
+    }
+    public void  showGrid()
     {
-        for (int i = 0; i < 9; i++)
-        {
-            if ((i % 3) == 0)
-                System.out.printf(" +--------+--------+--------+ \n");
-            for (int j = 0; j < 9; j++)
-            {
-                if ((j % 3) == 0)
-                    System.out.printf(" | ");
-                if (grid.grid[i][j] == 0 || grid.grid[i][j] == '0')
-                    System.out.printf(" .");
-                else
-                    System.out.printf(" %c", grid.grid[i][j]);
-            }
-            System.out.printf(" | \n");
-        }
-        System.out.printf(" +--------+--------+--------+ \n");
+        System.out.println(String.format(mod.format, mod.grid));
     }
 
-    public void  showEmptyGrid(GridModel9 grid)
+    public void  showEmptyGrid()
     {
-        Arrays.fill(grid.grid, '.');
-        System.out.println(String.format(grid.format, grid.grid));
+        Character[] tmp = new Character[81];
 
+        Arrays.fill(tmp, '.');
+        System.out.println(String.format(mod.format, tmp));
     }
 
 /*    public void setValue(int i, int j, char val)

@@ -1,61 +1,29 @@
 package be.technifutur.sudoku.samurai;
 
+import be.technifutur.sudoku.SudokuView;
+
 import java.util.Arrays;
 
-public class GridViewSamurai
+public class GridViewSamurai implements SudokuView
 {
-    Character[]    grid = new Character[(21 * 21) - (8 * 9)];
-    String      format =    """
-                            +----------+----------+----------+          +----------+-----------+---------+
-                            |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |          |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |
-                            |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |          |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |
-                            |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |          |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |
-                            +----------+----------+----------+          +----------+-----------+---------+
-                            |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |          |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |
-                            |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |          |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |
-                            |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |          |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |
-                            +----------+----------+----------+----------+----------+----------+----------+
-                            |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |
-                            |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |
-                            |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |
-                            +----------+----------+----------+----------+----------+----------+----------+
-                                                  |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |              
-                                                  |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |              
-                                                  |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |              
-                            +----------+----------+----------+----------+----------+----------+----------+
-                            |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |
-                            |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |
-                            |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |
-                            +----------+----------+----------+----------+----------+----------+----------+
-                            |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |          |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |
-                            |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |          |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |
-                            |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |          |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |
-                            +----------+----------+----------+          +----------+-----------+---------+
-                            |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |          |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |
-                            |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |          |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |
-                            |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |          |  %c  %c  %c |  %c  %c  %c |  %c  %c  %c |
-                            +----------+----------+----------+          +----------+-----------+---------+
-                            """;
-    //char[] line
-
-    public void  showGrid()
-    {
-        Arrays.fill(grid, '.');
-        System.out.println(String.format(format, grid));
+    GridModelSamurai mod;
+    public GridViewSamurai(GridModelSamurai mod){
+       this.mod = mod;
     }
+    public void  showGrid() {
+        Character[] tmp = new Character[(21 * 21) - (8 * 9)];
 
-    /*public void putValue(int i, int j, char val)
-    {
-        if (i > 1 && i < 10 && j > 1 && j < 10)
-            grid[i - 1][j - 1] = val;
-    }
-
-    public void fillGrid(char[][] tab)
-    {
-        for (int i = 0; i < 9; i++)
-        {
-            for (int j = 0; j < 9; j++)
-                grid[i][j] = tab[i][j];
+        for (int i = 0, j = 0; i < (21 * 21); i++) {
+            if (mod.isValidPosition(i / 21, i % 21))
+                tmp[j++] = mod.grid[i];
         }
-    }*/
+        System.out.println(String.format(mod.format, tmp));
+    }
+    public void  showEmptyGrid(){
+        Character[] tmp = new Character[(21 * 21)-(8 * 9)];
+
+        Arrays.fill(tmp, '.');
+        System.out.println(String.format(mod.format, tmp));
+    }
+
 }

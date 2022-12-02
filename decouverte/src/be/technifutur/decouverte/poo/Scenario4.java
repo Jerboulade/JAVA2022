@@ -6,7 +6,8 @@ public class Scenario4
         Personnage[] p = {
                 new Soldat("Léon"),
                 new Jedi("Luke"),
-                new Clone("Jango"),
+                new Clone(),
+                new Clone("Jango_012"),
                 new Sith("Anakin")
         };
         Force force;

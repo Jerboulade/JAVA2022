@@ -1,8 +1,8 @@
 package be.technifutur.sudoku;
 
-public interface GridModel
+public interface SudokuModel
 {
-    char EMPTY = '0';
+    char EMPTY = '.';
 
     void setValue(int i, int j, char val);
     char getValue(int i, int j);

@@ -1,11 +1,12 @@
 package be.technifutur.sudoku.sudo4x4;
 
-import be.technifutur.sudoku.GridModel;
+import be.technifutur.sudoku.SudokuModel;
 
-public class GridModel4 implements GridModel
+import java.util.Arrays;
+
+public class GridModel4 implements SudokuModel
 {
-    char[][] grid = new char[4][4];
-    //public static final Character EMPTY = '0';
+    public Character[] grid = new Character[4 * 4];
     String  format = """
             +-------+-------+
             |  %c  %c  |  %c  %c  |
@@ -18,16 +19,22 @@ public class GridModel4 implements GridModel
             +-------+-------+
             """;
 
+    public GridModel4(){
+        Arrays.fill(grid, '.');
+    }
     @Override
     public void setValue(int i, int j, char val) {
-        if (i > 0 && i < 5 && j > 0 && j < 5)
-            grid[i - 1][j - 1] = val;
+        i--;
+        j--;
+        if (isValidPosition(i, j) && isValidValue(val))
+            grid[(i * 4) + j] = val;
     }
 
     @Override
     public char getValue(int i, int j) {
-
-        return(grid[i - 1][j - 1]);
+        i--;
+        j--;
+        return(isValidPosition(i, j) ? grid[(i * 4) + j] : 0);
     }
 
     @Override
@@ -37,20 +44,17 @@ public class GridModel4 implements GridModel
 
     @Override
     public Boolean isValidPosition(int i, int j){
-        return (false);
+        return (i >= 1 && i <= 4 && j >= 1 && j <= 4);
     }
 
     @Override
     public Boolean isValidValue(char c){
-        return (false);
+        return ((c >= '1' && c <= '4') || c == EMPTY);
     }
 
-    public void fillGrid(char[][] tab)
+    public void fillGrid(Character[] tab)
     {
-        for (int i = 0; i < 4; i++)
-        {
-            for (int j = 0; j < 4; j++)
-                grid[i][j] = tab[i][j];
-        }
+        for (int i = 0; i < 16; i++)
+            grid[i] = tab[i];
     }
 }

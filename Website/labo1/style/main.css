@@ -3,14 +3,20 @@
 	src: url("/font/LiberationSans-Regular.ttf") format("truetype");
 }
 
-body{
-	width: 100%;
-	font-family: "liberation";
-	display: flex;
-	flex-direction: column;
-	background-color: lightgray;
+@font-face {
+	font-family: "roboto";
+	src: url("/font/Roboto-Regular.ttf") format("truetype");
 }
 
+body{
+	margin: 0;
+	min-height: 100vh;
+	width: 100%;
+	font-family: "liberation", sans-serif;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
 
 /* HEADER */
 
@@ -18,12 +24,7 @@ header{
 	display: flex;
 	background-color: steelblue;
 	align-items: center;
-	/* flex-direction: row; */
-	/* width: 100%; */
 	height: 80px;
-	/* position: absolute; */
-	/* top: 0; */
-	/* right: 0; */
 }
 
 .logo{
@@ -65,12 +66,15 @@ nav > a:hover {
 	height: 1.5rem;
 }
 
+.search_bar > input:hover{
+	width: 150%;
+	float: right;
+}
+
 /* CENTRAL */
 
 .central{
-	/* padding: 5% 5% 5% 5%; */
 	display: flex;
-	width: 100%;
 	flex-direction: row;
 	background-color: white;
 	text-align: center;
@@ -80,25 +84,65 @@ main{
 	display: flex;
 	flex-direction: column;
 	height: 100%;
-	padding: 5% 5% 5% 5%;
+	margin: auto;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
 }
 
-a > .button2{
+main > h1{
+	font-size: 2rem;
+	letter-spacing: .3rem;
+	width: 80%;
+	font-family: "roboto", "liberation", sans-serif;
+	font-weight: lighter;
+	color: gray;
+}
 
+main > p > a{
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+main > p > a:hover{
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.text_0{
+	text-decoration: none;
+	color: steelblue;
+}
+.text_1{
+	font-weight: bold;
+	color: steelblue;
 }
 
 .button2{
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	font-size: 1rem;
+	padding-left: 3rem;
+	padding-right: 3rem;
 	color: white;
-	height: 2rem;
+	height: 3rem;
 	border: solid;
 	border-radius: 5px;
-	background-color: green;
+	background-color: seagreen;
+}
+
+.button2:hover{
+	filter: brightness(90%);
+	background: #157347;
 }
 
 aside{
-	padding: 5% 5% 5% 5%;
+	width: 50%;
+	margin: auto;
+}
+
+aside > img{
+	float: left;
+	border-radius: 5px;
 }
 
 /* BOTTOM */
@@ -121,33 +165,37 @@ aside{
 }
 
 .pre_footer_content > p{
-	padding-left: 1%;
-	text-align: center;
-
+	font-weight: bold;
+	padding: 1%;
+	margin: auto;
 }
 
 .pre_footer_content > a{
 	padding-left: 1%;
 	color: white;
-	/* height: 100% */
-	/* font-size: 1.7rem; */
 	text-decoration: none;
-	/* justify-content: space-around; */
 }
 
 .button1{
 	color: white;
-	height: 2rem;
+	height: 2.5rem;
 	border: solid;
+	border-width: 1px;
 	border-radius: 5px;
 	background-color: transparent;
 }
 
+.button1:hover{
+	background-color: white;
+	color: #7A736E;
+}
+
 footer{
 	display: flex;
-	/* flex-direction: row; */
+	background-color: WhiteSmoke;
 	height: 60px;
 	width: 100%
+
 }
 
 .footer_content{
@@ -158,4 +206,97 @@ footer{
 	font-size: 0.7rem;
 	justify-content: space-between;
 	align-items: center;
+}
+
+footer > div > a:hover {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+/* MEDIA QUERIES - SMALL SCREEN */
+
+@media all and (max-width: 600px){
+
+	/* HEADER */
+
+	header{
+		height: auto;
+		display: flex;
+		text-align: center;
+		padding: 2%;
+		flex-direction: column;
+	}
+
+	nav{
+		padding: 1%;
+	}
+
+	.logo{
+		align-items: center;
+		min-width: 30%;
+	}
+
+	.search_bar > input:hover{
+		width: auto;
+	}
+	nav{
+		display: flex;
+		margin-top: 2%;
+		margin-bottom: 2%;
+		flex-direction: column;
+	}
+
+	nav > a{
+		font-size: 1.5rem;
+	}
+
+	/* CENTRAL */
+
+	.central{
+		height: auto;
+		flex-direction: column;
+	}
+
+	main > h1{
+		letter-spacing: 0.1rem;
+	}
+
+	aside{
+		display: flex;
+	}
+
+	aside > img{
+		width: 90%;
+		margin: 10%;;
+	}
+
+	/* BOTTOM */
+
+	.pre_footer_container{
+		height: auto;
+	}
+
+	.pre_footer_content{
+		text-align: center;
+		flex-direction: column;
+		padding: 2%;
+	}
+
+	.pre_footer_content > a{
+		padding: 2%;
+	}
+
+	footer{
+		height: auto;
+	}
+
+	.footer_content{
+		flex-direction: column;
+		padding: 0.5%;
+	}
+
+	.footer_content > a{
+		flex-direction: column;
+		padding: 0.5%;
+	}
 }

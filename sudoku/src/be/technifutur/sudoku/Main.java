@@ -6,6 +6,10 @@ import be.technifutur.sudoku.sudo9x9.GridModel9;
 import be.technifutur.sudoku.sudo9x9.GridView9;
 import be.technifutur.sudoku.samurai.GridViewSamurai;
 
+import java.io.InputStream;
+import java.util.NoSuchElementException;
+import java.util.Scanner;
+
 public class Main
 {
     public static void main(String[] args)
@@ -48,21 +52,46 @@ public class Main
                                 '1','2','3','.','.','.','.','k','9', '1','2','.','4','5','.','.','.','9','5','6','l',
 
         };
-        nine_view.showEmptyGrid();
-        nine_view.showGrid();
-        nine_mod.setValue(2, 2, '1');
-        nine_view.showGrid();
-        nine_mod.fillGrid(tab);
-        nine_view.showGrid();
-        nine_view.showEmptyGrid();
-        nine_view.showGrid();
-        System.out.println(nine_mod.getValue(9, 8));
+        int     option = 0;
+        int     line;
+        int     col;
+        char     val;
+        String  input = null;
+        Scanner scan = new Scanner(System.in);
+
+        while (option == 0)
+        {
+            System.out.println("Enter line index: ");
+            try {
+                input = scan.nextLine();
+                line = Integer.parseInt(input);
+            }
+            catch (NumberFormatException e)
+            {
+                System.out.printf("'%s' is not a number\n", input);
+                continue;
+            }
+            catch (NoSuchElementException | IllegalStateException e)
+            {
+                System.out.println("An error occured");
+            }
+            option = 1;
+        }
+        //nine_view.showEmptyGrid();
+        //nine_view.showGrid();
+        //nine_mod.setValue(2, 2, '1');
+        //nine_view.showGrid();
+        //nine_mod.fillGrid(tab);
+        //nine_view.showGrid();
+        //nine_view.showEmptyGrid();
+        //nine_view.showGrid();
+        //System.out.println(nine_mod.getValue(9, 8));
         //GridViewSamurai sam = new GridViewSamurai();
-        sam_mod.fillGrid(tabSam);
-        sam_view.showGrid();
-        sam_mod.setValue(21, 21, '1');
-        sam_view.showGrid();
-        sam_view.showEmptyGrid();
+        //sam_mod.fillGrid(tabSam);
+        //sam_view.showGrid();
+        //sam_mod.setValue(21, 21, '1');
+        //sam_view.showGrid();
+        //sam_view.showEmptyGrid();
 
         //menu.launch();
     }

@@ -21,7 +21,7 @@ public class MapDecouverte {
             System.out.printf("age: %s, personne: %s\n", i, maMap.get(i));
         }
         System.out.println("-----------------");
-        Map<Integer, Set<Personne>> calendar = new LinkedHashMap<>();
+        Map<Integer, Set<Personne>> calendar = new TreeMap<>();
         for (Personne p : Personne.dataTest()){
             int age = p.getAge();
             Set<Personne> set = calendar.get(age);

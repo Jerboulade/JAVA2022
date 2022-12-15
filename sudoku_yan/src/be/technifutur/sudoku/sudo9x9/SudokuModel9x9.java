@@ -2,6 +2,9 @@ package be.technifutur.sudoku.sudo9x9;
 
 import be.technifutur.sudoku.*;
 
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+
 public class SudokuModel9x9 extends AbstractSudokuModel implements SudokuModel {
 
     public SudokuModel9x9() {
@@ -11,9 +14,21 @@ public class SudokuModel9x9 extends AbstractSudokuModel implements SudokuModel {
     private static Cell[][] createGrid(int size) {
         Cell[][] grille = new Cell[size][size];
 
+        HashSet<Character>[] colZone = new HashSet[size];
+        for (int x = 0; x < size; x++)
+            colZone[x] = new LinkedHashSet<>();
+        HashSet<Character>[] sqrZone = new HashSet[size];
+        for (int x = 0; x < size; x++)
+            sqrZone[x] = new LinkedHashSet<>();
         for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++)
+            HashSet<Character> lineZone = new HashSet<>();
+            for (int j = 0; j < size; j++) {
                 grille[i][j] = new Cell();
+                grille[i][j].addZone("line" + i, lineZone);
+                grille[i][j].addZone("col" + j, colZone[j]);
+                int zoneIndex = (int)Math.sqrt(size) + (i / (int)Math.sqrt(size) * (int)Math.sqrt(size));
+                grille[i][j].addZone("sqr" + zoneIndex, sqrZone[zoneIndex]);
+            }
         }
         return (grille);
     }

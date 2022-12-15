@@ -2,12 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="415a4231-9d95-4348-aba8-63e3f65567de" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/be/technifutur/sudoku/Cell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sudoku_yan.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../decouverte/out/production/decouverte/be/technifutur/decouverte/collection/iterator/MapDecouverte.class" beforeDir="false" afterPath="$PROJECT_DIR$/../decouverte/out/production/decouverte/be/technifutur/decouverte/collection/iterator/MapDecouverte.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../decouverte/src/be/technifutur/decouverte/collection/iterator/MapDecouverte.java" beforeDir="false" afterPath="$PROJECT_DIR$/../decouverte/src/be/technifutur/decouverte/collection/iterator/MapDecouverte.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../sudok/untitled/.idea/workspace.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../decouverte/src/be/technifutur/decouverte/generique/Box.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../decouverte/src/be/technifutur/decouverte/generique/TestBox.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../decouverte/src/be/technifutur/decouverte/generique/TestBoxHeritage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/be/technifutur/sudoku/HistoryItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/be/technifutur/sudoku/SudokuDoublonException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/be/technifutur/sudoku/SudokuLockException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decouverte/src/be/technifutur/decouverte/collection/TestBinaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/../decouverte/src/be/technifutur/decouverte/collection/TestBinaire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sudoku_yan/be/technifutur/sudoku/AbstractSudokuModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sudoku_yan/be/technifutur/sudoku/AbstractSudokuModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sudoku_yan/be/technifutur/sudoku/Cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sudoku_yan/be/technifutur/sudoku/Cell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sudoku_yan/be/technifutur/sudoku/CreateSudokuControleur.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sudoku_yan/be/technifutur/sudoku/CreateSudokuControleur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sudoku_yan/be/technifutur/sudoku/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sudoku_yan/be/technifutur/sudoku/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sudoku_yan/be/technifutur/sudoku/SudokuControleur.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sudoku_yan/be/technifutur/sudoku/SudokuControleur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sudoku_yan/be/technifutur/sudoku/SudokuModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sudoku_yan/be/technifutur/sudoku/SudokuModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sudoku_yan/be/technifutur/sudoku/sudo4x4/SudokuModel4x4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sudoku_yan/be/technifutur/sudoku/sudo4x4/SudokuModel4x4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sudoku_yan/be/technifutur/sudoku/sudo9x9/SudokuModel9x9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sudoku_yan/be/technifutur/sudoku/sudo9x9/SudokuModel9x9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sudoku_yan/be/technifutur/sudoku/sudoSamourail/SudokuModelSamourail.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sudoku_yan/be/technifutur/sudoku/sudoSamourail/SudokuModelSamourail.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/sudoku/AbstractSudokuModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/sudoku/AbstractSudokuModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/sudoku/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/sudoku/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/sudoku/CreateSudokuControleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/sudoku/CreateSudokuControleur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/sudoku/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/sudoku/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/sudoku/SudokuControleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/sudoku/SudokuControleur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/sudoku/SudokuModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/sudoku/SudokuModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/sudoku/sudo4x4/SudokuModel4x4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/sudoku/sudo4x4/SudokuModel4x4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/sudoku/sudo9x9/SudokuModel9x9.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/sudoku/sudo9x9/SudokuModel9x9.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,16 +90,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/be/technifutur/sudoku/CreateSudokuControleur.java</url>
-          <line>62</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

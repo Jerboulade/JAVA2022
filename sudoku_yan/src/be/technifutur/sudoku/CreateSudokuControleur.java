@@ -2,14 +2,14 @@ package be.technifutur.sudoku;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Scanner;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class CreateSudokuControleur implements SudokuControleur {
     private final SudokuModel sudoku;
     private final SudokuVue vue;
-
+    private       Queue<HistoryItem> history = new LinkedList<>();
     private final Input input;
 
     private Pattern pattern = Pattern.compile("([1-9][0-9]*)\\.([1-9][0-9]*)(\\..)?");
@@ -40,6 +40,8 @@ public class CreateSudokuControleur implements SudokuControleur {
                     } else {
                         sudoku.deleteValue(lig, col);
                     }
+                } catch (SudokuLockException e) {
+                    vue.setMessage("Cell ["+(e.getLine()+1)+"]"+"["+(e.getCol()+1)+"] is locked");
                 } catch (SudokuException e) {
                     vue.setMessage(e.getMessage());
                 }
@@ -52,7 +54,7 @@ public class CreateSudokuControleur implements SudokuControleur {
         }
     }
 
-    public void init(String path) throws FileNotFoundException, SudokuValueException, SudokuPositionException {
+    public void init(String path) throws FileNotFoundException, SudokuException{
         File file = new File(path);
 
         try (Scanner scan = new Scanner(file)) {
@@ -62,19 +64,25 @@ public class CreateSudokuControleur implements SudokuControleur {
         }
     }
 
-    public void parseFile(Scanner scan) throws SudokuValueException, SudokuPositionException {
+    public void parseFile(Scanner scan) throws SudokuException {
         int li = 0;
 
-        while (scan.hasNext()) {
-            String line = scan.nextLine();
-            String[] tab = line.split(",");
-            for (int col = 0; col < sudoku.getMaxSize(); col++) {
-                char val = tab[col].charAt(0);
-                //if (s.length() > 1) --> throw 'SudokuException'
-                if (sudoku.isValueValid(val))
-                    sudoku.setValue(li, col++, val);
+        try {
+            while (scan.hasNext()) {
+                String line = scan.nextLine();
+                String[] tab = line.split(",");
+                for (int col = 0; col < sudoku.getMaxSize(); col++) {
+                    char val = tab[col].charAt(0);
+                    //if (s.length() > 1) --> throw 'SudokuException'
+                    if (sudoku.isValueValid(val))
+                        sudoku.setValue(li, col++, val);
+                }
+                li++;
             }
-            li++;
+            sudoku.lockGrid();
+        }
+        catch (SudokuException e){
+            throw (new RuntimeException(e));
         }
     }
 }

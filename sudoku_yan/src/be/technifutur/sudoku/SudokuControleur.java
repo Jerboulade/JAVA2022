@@ -6,5 +6,5 @@ import java.io.FileNotFoundException;
 
 public interface SudokuControleur {
     void start();
-    void init(String path) throws FileNotFoundException, SudokuValueException, SudokuPositionException;
+    void init(String path) throws FileNotFoundException, SudokuException;
 }

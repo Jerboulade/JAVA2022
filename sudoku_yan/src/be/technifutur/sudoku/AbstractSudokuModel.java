@@ -1,8 +1,9 @@
 package be.technifutur.sudoku;
 
+import java.util.*;
+
 public abstract class AbstractSudokuModel implements SudokuModel {
 
-    //private char[][] grille;
     private Cell[][] grille;
     public AbstractSudokuModel(Cell[][] grille){
         this.grille = grille;
@@ -22,10 +23,17 @@ public abstract class AbstractSudokuModel implements SudokuModel {
 
     public abstract boolean isPositionValid(int lig, int col);
 
-    public void setValue(int lig, int col, char value) throws SudokuPositionException, SudokuValueException {
+    public void setValue(int lig, int col, char value) throws SudokuException {
         testPosition(lig, col);
         testValue(value);
-        this.grille[lig][col].setValue(value);
+        try {
+            this.grille[lig][col].setValue(value);
+        }
+        catch (SudokuLockException e){
+            e.setCol(col);
+            e.setLine(lig);
+            throw e;
+        }
     }
 
     private void testValue(char value) throws SudokuValueException {
@@ -38,10 +46,19 @@ public abstract class AbstractSudokuModel implements SudokuModel {
         return this.grille.length;
     }
 
-    public void deleteValue(int lig, int col) throws SudokuPositionException {
+    public void deleteValue(int lig, int col) throws SudokuException {
         testPosition(lig, col);
         grille[lig][col].clear();
     }
 
     public abstract boolean isValueValid(char value);
+
+    @Override
+    public void lockGrid()
+    {
+        for (Cell[] line : grille){
+            for (Cell cell : line)
+                cell.lock();
+        }
+    }
 }

@@ -11,7 +11,7 @@ import java.io.FileNotFoundException;
 
 public class Main  {
     private static ScannerInput input = new ScannerInput();
-    public static void main(String[] args) throws SudokuValueException, FileNotFoundException, SudokuPositionException {
+    public static void main(String[] args) throws FileNotFoundException, SudokuException {
         SudokuControleur controleur =
                 switch (input.read("1 Sudoku 4 x 4\n2 Sudoku 9 x 9\n3 Sudoku Samourail\n")) {
                     case "1" -> {

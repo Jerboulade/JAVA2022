@@ -1,13 +1,15 @@
 package be.technifutur.sudoku;
 
+import java.math.BigInteger;
 import java.util.*;
 
 public abstract class AbstractSudokuModel implements SudokuModel {
 
     private Cell[][] grille;
+    //public Queue<BigInteger> history = new LinkedList<>();
+
     public AbstractSudokuModel(Cell[][] grille){
         this.grille = grille;
-
     }
 
     public char getValue(int lig, int col) throws SudokuPositionException {
@@ -60,5 +62,34 @@ public abstract class AbstractSudokuModel implements SudokuModel {
             for (Cell cell : line)
                 cell.lock();
         }
+    }
+
+    public Optional<BigInteger> getMemento(){
+        //BigInteger bi = new BigInteger("0");
+
+        return Arrays.stream(grille)
+                .flatMap(map -> Arrays.stream(map))
+                .filter(cell -> !cell.isLock())
+                .map(cell -> new BigInteger(cell.isEmpty() ? "0" : String.valueOf(cell.getValue())))
+                .reduce((prev, current) -> prev.shiftLeft(4).add(current));
+        /*
+        for (Cell[] c_tab : grille)
+        {
+            for (Cell c : c_tab)
+            {
+                if (!c.isLock())
+                    bi.shiftLeft(4).add(new BigInteger(String.valueOf(c.getValue())));
+            }
+        }
+        */
+    }
+
+    public void setMemento(BigInteger bi){
+        int length = grille.length;
+        Character[] grid = new Character[length];
+
+        //while (--length != 0)
+            //grid[length] =
+
     }
 }

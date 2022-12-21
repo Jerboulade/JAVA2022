@@ -88,6 +88,7 @@ public abstract class AbstractSudokuModel implements SudokuModel {
         int length = grille.length;
         Character[] grid = new Character[length];
 
+
         //while (--length != 0)
             //grid[length] =
 

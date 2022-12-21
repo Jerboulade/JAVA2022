@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="415a4231-9d95-4348-aba8-63e3f65567de" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../decouverte/src/be/technifutur/decouverte/stream/ArrayToStream.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../decouverte/src/be/technifutur/decouverte/testEnum/JourSemaine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../decouverte/src/be/technifutur/decouverte/testEnum/TestSemaine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../decouverte/src/be/technifutur/decouverte/testRecord/Cours.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../decouverte/src/be/technifutur/decouverte/testRecord/Lesson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../decouverte/src/be/technifutur/decouverte/testRecord/TestCours.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event/.idea/event.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event/src/be/technifutur/event/activities/Activity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event/src/be/technifutur/event/activities/Housing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event/src/be/technifutur/event/activities/Meal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event/src/be/technifutur/event/activities/Session.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event/src/be/technifutur/event/activities/SessionCategory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event/src/be/technifutur/event/activities/TestActivities.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event/src/be/technifutur/event/individual/Individual.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event/src/be/technifutur/event/schedule/Schedule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/technifutur/sudoku/AbstractSudokuModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/sudoku/AbstractSudokuModel.java" afterDir="false" />
     </list>
@@ -40,11 +43,12 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/studentjava01/Desktop/Java/Git/testgit/decouverte",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/studentjava01/Desktop/Java/Git/testgit/event",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler"
+    "settings.editor.selected.configurable": "configurable.group.language"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -73,5 +77,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

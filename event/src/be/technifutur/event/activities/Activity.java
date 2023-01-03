@@ -3,10 +3,10 @@ package src.be.technifutur.event.activities;
 import java.time.LocalDateTime;
 
 public class Activity {
-    public LocalDateTime    startTime;
-    public LocalDateTime    endTime;
-    public float        price;
-    public String       comment;
+    private LocalDateTime    startTime;
+    private LocalDateTime    endTime;
+    private float            price;
+    private String           comment;
 
     public              Activity(LocalDateTime startTime) {
         this.startTime = startTime;

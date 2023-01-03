@@ -1,12 +1,8 @@
-package src.be.technifutur.event.individual;
+package src.be.technifutur.event.participant;
 
-import src.be.technifutur.event.activities.Activity;
-
-import java.util.LinkedList;
-
-public class Individual {
-    public String   name;
-    public String   club;
+public class Individual extends Participant{
+    private String   name;
+    private String   club;
     //public LinkedList<Activity> activitiesList;
 
     public          Individual(String name, String lastName, String club) {

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/JAVA2022.iml" filepath="$PROJECT_DIR$/.idea/JAVA2022.iml" />
+      <module fileurl="file://$PROJECT_DIR$/decouverte/decouverte.iml" filepath="$PROJECT_DIR$/decouverte/decouverte.iml" />
+      <module fileurl="file://$PROJECT_DIR$/listeClient/listeClient.iml" filepath="$PROJECT_DIR$/listeClient/listeClient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sudoku/sudoku.iml" filepath="$PROJECT_DIR$/sudoku/sudoku.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sudoku_yan/sudoku_yan.iml" filepath="$PROJECT_DIR$/sudoku_yan/sudoku_yan.iml" />
+    </modules>
+  </component>
+</project>

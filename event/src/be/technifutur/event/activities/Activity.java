@@ -8,8 +8,7 @@ public class Activity {
     private float            price;
     private String           comment;
 
-    public              Activity(LocalDateTime startTime) {
-        this.startTime = startTime;
+    public              Activity() {
     }
 
     public              Activity(LocalDateTime startTime, LocalDateTime endTime, float price) {
@@ -55,5 +54,14 @@ public class Activity {
 
     public void         setComment(String comment) {
         this.comment = comment;
+    }
+
+    @Override
+    public String toString() {
+        return this.getClass().getSimpleName() + "{" +
+                "startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", price=" + price +
+                ", comment='" + comment + '\'';
     }
 }

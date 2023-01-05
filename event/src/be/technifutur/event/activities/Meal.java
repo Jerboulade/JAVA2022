@@ -4,10 +4,9 @@ import java.time.LocalDateTime;
 
 public class Meal extends Activity
 {
-    String          dish;
+    private String          dish;
 
-    public          Meal(LocalDateTime startTime) {
-        super (startTime);
+    public          Meal() {
     }
 
     public String   getDish() {
@@ -16,5 +15,12 @@ public class Meal extends Activity
 
     public void setDish(String dish) {
         this.dish = dish;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                ", dish=" + dish +
+                '}';
     }
 }

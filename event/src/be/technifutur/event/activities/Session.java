@@ -7,8 +7,7 @@ public class Session extends Activity
 {
     public SessionCategory  category;
 
-    public                  Session(LocalDateTime startTime) {
-        super (startTime);
+    public                  Session() {
     }
 
     public SessionCategory  getCategory() {
@@ -17,5 +16,12 @@ public class Session extends Activity
 
     public void             setCategory(SessionCategory category) {
         this.category = category;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                ", category=" + category +
+                '}';
     }
 }

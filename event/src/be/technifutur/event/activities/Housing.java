@@ -4,10 +4,9 @@ import java.time.LocalDateTime;
 
 public class Housing extends Activity
 {
-    public int  room;
+    private int  room;
 
-    public      Housing(LocalDateTime startTime) {
-        super (startTime);
+    public      Housing() {
     }
 
     public int  getRoom() {
@@ -16,5 +15,12 @@ public class Housing extends Activity
 
     public void setRoom(int room) {
         this.room = room;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                ", room=" + room +
+                '}';
     }
 }

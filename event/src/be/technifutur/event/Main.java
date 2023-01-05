@@ -1,35 +1,38 @@
 package src.be.technifutur.event;
 
-import src.be.technifutur.event.participant.Participant;
+import src.be.technifutur.event.activities.ActivityController;
+import src.be.technifutur.event.participant.IndividualController;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Event planning = new Event();
+        ActivityController ac = planning.getAc();
+        IndividualController pc = planning.getPc();
         int action = 0;
-        Participant participant;
         Scanner scan = new Scanner(System.in);
-        String output;
 
-        while (action != 4){
-            System.out.println("1.Show list activities\n2.Show list participant\n3.Add activity\n4.Quit");
-            //action = scan.nextInt();
+        while (action != 5){
+            System.out.println("1.Show list activities\n2.Show list participant\n3.Add activity\n4.Add participant\n5.Quit");
             try {
-                action = scan.nextInt();
-                if (action < 1 || action > 4)
+                action = Integer.parseInt(scan.nextLine());
+                if (action < 1 || action > 5)
+                    System.out.println("-Wrong action!-");
+                else
                 {
-                    System.out.println("Wrong action!");
-                    continue;
+                    switch (action) {
+                        case 1 -> ac.listActivities();
+                        case 2 -> pc.listIndividual();
+                        case 3 -> ac.createActivity();
+                        case 4 -> pc.createIndividual();
+                    }
                 }
             }
-            catch (InputMismatchException e){
-                //System.out.printf("Wrong action! %s -----------------------\n", action);
-                scan.next();
-                continue;
+            catch (NumberFormatException e){
+                System.out.println("--Wrong action!--");
             }
-            System.out.println("action " + action);
         }
-        System.out.println("Exit");
+
     }
 }

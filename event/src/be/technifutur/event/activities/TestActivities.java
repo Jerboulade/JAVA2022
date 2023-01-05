@@ -22,13 +22,12 @@ public class TestActivities {
         //LocalDateTime date = LocalDateTime.of(2002, 2, 15, 13, 31); // throws DateTimeException
         //date = date.plusHours(5);
 
-
+        //stockage
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy H:mm");
-        String text = "12-03-2022 8:30";
-
+        String text = "12-03-2022 8:30";  // user input
         LocalDateTime sTime = LocalDateTime.parse(text, dateFormat);
         System.out.println(sTime);
-
+        //view
         DateTimeFormatter viewFormat = DateTimeFormatter.ofPattern("'Le' dd LLLL yyyy 'à' HH'h'mm");
         String view = sTime.format(viewFormat);
         System.out.println(view);

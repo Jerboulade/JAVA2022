@@ -2,27 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="415a4231-9d95-4348-aba8-63e3f65567de" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../event/src/be/technifutur/event/Event.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../event/src/be/technifutur/event/activities/ActivityController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../event/src/be/technifutur/event/participant/IndividualController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event/src/be/technifutur/event/controller/ListController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event/src/be/technifutur/event/controller/ParticipantController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event/src/be/technifutur/event/controller/PlanningController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event/src/be/technifutur/event/controller/SubscriptionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../event/out/production/event/src/be/technifutur/event/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../event/out/production/event/src/be/technifutur/event/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../event/out/production/event/src/be/technifutur/event/activities/Activity.class" beforeDir="false" afterPath="$PROJECT_DIR$/../event/out/production/event/src/be/technifutur/event/activities/Activity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../event/out/production/event/src/be/technifutur/event/activities/Housing.class" beforeDir="false" afterPath="$PROJECT_DIR$/../event/out/production/event/src/be/technifutur/event/activities/Housing.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../event/out/production/event/src/be/technifutur/event/activities/Meal.class" beforeDir="false" afterPath="$PROJECT_DIR$/../event/out/production/event/src/be/technifutur/event/activities/Meal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../event/out/production/event/src/be/technifutur/event/activities/Session.class" beforeDir="false" afterPath="$PROJECT_DIR$/../event/out/production/event/src/be/technifutur/event/activities/Session.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../event/out/production/event/src/be/technifutur/event/activities/TestActivities.class" beforeDir="false" afterPath="$PROJECT_DIR$/../event/out/production/event/src/be/technifutur/event/activities/TestActivities.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../event/out/production/event/src/be/technifutur/event/participant/Individual.class" beforeDir="false" afterPath="$PROJECT_DIR$/../event/out/production/event/src/be/technifutur/event/participant/Individual.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../event/out/production/event/src/be/technifutur/event/participant/Participant.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../event/out/production/event/src/be/technifutur/event/schedule/Schedule.class" beforeDir="false" afterPath="$PROJECT_DIR$/../event/out/production/event/src/be/technifutur/event/schedule/Schedule.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../event/out/production/event/src/be/technifutur/event/participant/Individual.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../event/out/production/event/src/be/technifutur/event/schedule/Schedule.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../event/src/be/technifutur/event/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/../event/src/be/technifutur/event/Planning.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../event/src/be/technifutur/event/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../event/src/be/technifutur/event/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../event/src/be/technifutur/event/activities/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../event/src/be/technifutur/event/activities/Activity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../event/src/be/technifutur/event/activities/Housing.java" beforeDir="false" afterPath="$PROJECT_DIR$/../event/src/be/technifutur/event/activities/Housing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../event/src/be/technifutur/event/activities/Meal.java" beforeDir="false" afterPath="$PROJECT_DIR$/../event/src/be/technifutur/event/activities/Meal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../event/src/be/technifutur/event/activities/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/../event/src/be/technifutur/event/activities/Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../event/src/be/technifutur/event/activities/TestActivities.java" beforeDir="false" afterPath="$PROJECT_DIR$/../event/src/be/technifutur/event/activities/TestActivities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../event/src/be/technifutur/event/participant/Individual.java" beforeDir="false" afterPath="$PROJECT_DIR$/../event/src/be/technifutur/event/participant/Individual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../event/src/be/technifutur/event/participant/Participant.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../event/src/be/technifutur/event/schedule/Schedule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../event/src/be/technifutur/event/activities/ActivityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../event/src/be/technifutur/event/controller/ActivityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../event/src/be/technifutur/event/participant/Individual.java" beforeDir="false" afterPath="$PROJECT_DIR$/../event/src/be/technifutur/event/participant/Participant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../event/src/be/technifutur/event/participant/IndividualController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

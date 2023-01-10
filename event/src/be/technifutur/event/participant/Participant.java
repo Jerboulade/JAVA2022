@@ -4,7 +4,7 @@ import src.be.technifutur.event.activities.Activity;
 
 import java.util.LinkedList;
 
-public class Individual{
+public class Participant {
     private String   id;
     private String   name;
     private String   lastName;
@@ -12,10 +12,10 @@ public class Individual{
     private LinkedList<Activity> activitiesList = new LinkedList<>();
 
 
-    public Individual() {
+    public Participant() {
     }
 
-    public          Individual(String name, String club) {
+    public Participant(String name, String club) {
         this.name = name;
         this.club = club;
     }
@@ -70,11 +70,6 @@ public class Individual{
     }
 
     public static void main(String[] args) {
-        LinkedList<Individual> aList = new LinkedList<>();
-        IndividualController ic = new IndividualController(aList);
 
-        System.out.println(ic.createIndividual());
-        System.out.println(ic.createIndividual());
-        System.out.println(aList);
     }
 }

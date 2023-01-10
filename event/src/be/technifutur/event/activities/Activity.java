@@ -1,13 +1,16 @@
 package src.be.technifutur.event.activities;
 
+import src.be.technifutur.event.participant.Participant;
+
 import java.time.LocalDateTime;
+import java.util.LinkedList;
 
 public class Activity {
     private LocalDateTime    startTime;
     private LocalDateTime    endTime;
     private float            price;
     private String           comment;
-
+    private LinkedList<Participant> participantsList = new LinkedList<>();
     public              Activity() {
     }
 
@@ -56,12 +59,26 @@ public class Activity {
         this.comment = comment;
     }
 
+    public LinkedList<Participant> getParticipantsList() {
+        return participantsList;
+    }
+
+    public void setParticipantsList(LinkedList<Participant> participantsList) {
+        this.participantsList = participantsList;
+    }
+
     @Override
     public String toString() {
+
+        LinkedList<String> names = new LinkedList<>();
+
+        for (Participant p : participantsList)
+            names.add(p.getName());
         return this.getClass().getSimpleName() + "{" +
                 "startTime=" + startTime +
                 ", endTime=" + endTime +
                 ", price=" + price +
-                ", comment='" + comment + '\'';
+                ", comment='" + comment + '\'' +
+                ", participantsList=" + names;
     }
 }

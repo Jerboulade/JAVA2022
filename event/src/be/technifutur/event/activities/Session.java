@@ -21,7 +21,6 @@ public class Session extends Activity
     @Override
     public String toString() {
         return super.toString() +
-                ", category=" + category +
-                '}';
+                " category:" + category;
     }
 }

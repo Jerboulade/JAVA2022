@@ -22,7 +22,7 @@ public class ActivityController {
         Scanner scan = new Scanner(System.in);
 
         while (action != 6){
-            System.out.println("""
+            System.out.print("""
                     1.Show activities
                     2.Create activity
                     3.Delete activity
@@ -49,10 +49,40 @@ public class ActivityController {
         }
     }
 
-    public void deleteActivity(){
+    public void showActivities(){
         if (aList.size() != 0){
+            DateTimeFormatter viewFormat = DateTimeFormatter.ofPattern("dd LLLL yyyy 'at' HH'h'mm");
+            String attribute;
 
+            for (Activity a : aList) {
+                if (a instanceof Meal)
+                    attribute = ((Meal) a).getDish();
+                else if (a instanceof Session)
+                    attribute = ((Session) a).category.name();
+                else if (a instanceof Housing)
+                    attribute = String.valueOf(((Housing) a).getRoom());
+                else
+                    attribute = "whatever";
+                String output = String.format("%s: %s\n", a.getClass().getSimpleName(), attribute);
+                System.out.printf("%s", output);
+                for (int i = 0; i < output.length(); i++)
+                    System.out.print("-");
+                System.out.printf("\nStart: %s\nEnd:   %s\nPrice: %.2f\nComment: '%s'\nParticipants: ",
+                        a.getStartTime().format(viewFormat), a.getEndTime().format(viewFormat), a.getPrice(), a.getComment());
+                if (a.getParticipantsList().size() != 0) {
+                    for (Participant p : a.getParticipantsList()) {
+                        System.out.printf("%s.%s", p.getName(), p.getLastName());
+                        if (!p.equals(a.getParticipantsList().get(a.getParticipantsList().size() - 1))) {
+                            System.out.print(", ");
+                        }
+                    }
+                } else
+                    System.out.println("none");
+                System.out.print("\n");
+            }
         }
+        else
+            System.out.println("No activity in the planning yet!\n");
     }
     public void createActivity(){
         String input;
@@ -62,7 +92,7 @@ public class ActivityController {
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy H:mm");
         LocalDateTime sTime;
 
-        System.out.println("Choose the type of activity\n1.Sport Session\n2.Meal\n3.Housing");
+        System.out.print("1.Sport Session\n2.Meal\n3.Housing\nChoose the type of activity: ");
         option = Integer.parseInt(scan.nextLine());
         switch (option) {
             case 1:
@@ -75,7 +105,7 @@ public class ActivityController {
                 a = new Activity();
         }
         try{
-            System.out.println("Start date (dd-MM-yyyy H:mm) : ");
+            System.out.print("Start date (dd-MM-yyyy H:mm) : ");
             input = scan.nextLine();
             a.setStartTime(LocalDateTime.parse(input, dateFormat));
         }
@@ -83,54 +113,21 @@ public class ActivityController {
             a.setStartTime(LocalDateTime.now());
         }
         try {
-            System.out.println("End date (dd-MM-yyyy H:mm) : ");
+            System.out.print("End date (dd-MM-yyyy H:mm) : ");
             input = scan.nextLine();
             a.setEndTime(LocalDateTime.parse(input, dateFormat));
         }
         catch (DateTimeParseException e){
             a.setEndTime(LocalDateTime.now());
         }
-        System.out.println("Price : ");
+        System.out.print("Price : ");
         input = scan.nextLine();
         a.setPrice(Integer.parseInt(input));
-        System.out.println("Additional comment : ");
+        System.out.print("Additional comment : ");
         input = scan.nextLine();
         a.setComment(input);
         aList.add(a);
-        //return a;
-    }
-
-    public void showActivities(){
-        DateTimeFormatter viewFormat = DateTimeFormatter.ofPattern("dd LLLL yyyy 'at' HH'h'mm");
-        String attribute;
-
-        for (Activity a : aList){
-            if (a instanceof Meal)
-                attribute = ((Meal) a).getDish();
-            else if (a instanceof Session)
-                attribute = ((Session) a).category.name();
-            else if (a instanceof Housing)
-                attribute = String.valueOf(((Housing) a).getRoom());
-            else
-                attribute = "whatever";
-            String output = String.format("%s: %s\n", a.getClass().getSimpleName(), attribute);
-            System.out.printf("%s", output);
-            for (int i = 0; i < output.length();i++)
-                System.out.print("-");
-            System.out.printf("\nStart: %s\nEnd:   %s\nPrice: %.2f\nComment: '%s'\nParticipants: ",
-                    a.getStartTime().format(viewFormat), a.getEndTime().format(viewFormat), a.getPrice(), a.getComment());
-            if (a.getParticipantsList().size() != 0){
-                for (Participant p : a.getParticipantsList()) {
-                    System.out.printf("%s.%s", p.getName(), p.getLastName());
-                    if (!p.equals(a.getParticipantsList().get(a.getParticipantsList().size() - 1))) {
-                        System.out.print(", ");
-                    }
-                }
-            }
-            else
-                System.out.println("none");
-            System.out.println("\n");
-        }
+        System.out.println("\nActivity created : " + a + "\n");
     }
 
     public Session createSession(){
@@ -164,16 +161,5 @@ public class ActivityController {
         System.out.printf("Dish of the day: ");
         m.setDish(scan.nextLine());
         return m;
-    }
-
-    public static void main(String[] args) {
-        LinkedList aList = new LinkedList<>();
-        ActivityController ac = new ActivityController(aList);
-
-        ac.createActivity();
-        ac.createActivity();
-        ac.createActivity();
-        //ac.listActivities();
-        //ac.selectActivities();
     }
 }

@@ -27,7 +27,7 @@ public class PlanningController {
                     """);
             try {
                 action = Integer.parseInt(scan.nextLine());
-                if (action >= 1 && action <= 3) {
+                if (action >= 1 && action <= 2) {
                     switch (action) {
                         case 1 -> ac.start();
                         case 2 -> pc.start();
@@ -40,6 +40,6 @@ public class PlanningController {
                 System.out.println("--Wrong action!--");
             }
         }
-        System.out.printf("Ciao les nazes\n");
+        System.out.println("Ciao les nazes!");
     }
 }

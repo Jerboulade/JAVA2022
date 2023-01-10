@@ -20,7 +20,6 @@ public class Housing extends Activity
     @Override
     public String toString() {
         return super.toString() +
-                ", room=" + room +
-                '}';
+                " room:" + room;
     }
 }

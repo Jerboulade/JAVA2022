@@ -20,7 +20,6 @@ public class Meal extends Activity
     @Override
     public String toString() {
         return super.toString() +
-                ", dish=" + dish +
-                '}';
+                " dish:" + dish;
     }
 }

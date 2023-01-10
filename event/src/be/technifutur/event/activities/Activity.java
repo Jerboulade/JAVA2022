@@ -3,6 +3,7 @@ package src.be.technifutur.event.activities;
 import src.be.technifutur.event.participant.Participant;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 
 public class Activity {
@@ -70,15 +71,12 @@ public class Activity {
     @Override
     public String toString() {
 
-        LinkedList<String> names = new LinkedList<>();
-
-        for (Participant p : participantsList)
-            names.add(p.getName());
-        return this.getClass().getSimpleName() + "{" +
-                "startTime=" + startTime +
-                ", endTime=" + endTime +
-                ", price=" + price +
-                ", comment='" + comment + '\'' +
-                ", participantsList=" + names;
+        //StringBuilder str = new StringBuilder();
+        DateTimeFormatter day = DateTimeFormatter.ofPattern("dd LLLHH'h'mm");
+        //for (Participant p : participantsList){
+        //    str.append(String.format("%s.%s, ", p.getName(), p.getLastName()));
+        //}
+        return this.getClass().getSimpleName().toUpperCase() +
+                String.format(" [%s - %s]", getStartTime().format(day), getEndTime().format(day));
     }
 }

@@ -15,11 +15,11 @@ public class SubscriptionController {
         this.planning = planning;
     }
 
-    public void addOneToManyActivities(Participant participant){
+    public void subOneParticipantToManyActivities(Participant participant){
         Scanner scan = new Scanner(System.in);
 
         if (planning.getaList().size() != 0) {
-            System.out.println("Do you want to add activities to the participant? (y/n)");
+            System.out.print("Do you want to add activities to the participant? (y/n) ");
             if (scan.nextLine().equals("y")) {
                 LinkedList<Activity> selection = lc.selectMultipleItem(planning.getaList(), "activity(ies)");
                 LinkedList<Activity> pActivities = participant.getActivitiesList();
@@ -31,7 +31,7 @@ public class SubscriptionController {
         }
     }
 
-    public void addManyToManyActivities(){
+    public void subManyParticipantsToManyActivities(){
         LinkedList<Participant> pList = planning.getpList();
         LinkedList<Activity> aList = planning.getaList();
 
@@ -43,8 +43,12 @@ public class SubscriptionController {
             for (Participant p : pSelect) {
                 tmp = p.getActivitiesList();
                 for (Activity a : aSelect) {
-                    tmp.add(a);
-                    a.getParticipantsList().add(p);
+                    if (!tmp.contains(a)) {
+                        tmp.add(a);
+                        a.getParticipantsList().add(p);
+                    }
+                    else
+                        System.out.printf("%s %s is already subscribed to %s", p.getName(), p.getLastName(), a);
                 }
             }
         }

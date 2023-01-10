@@ -1,8 +1,8 @@
 package src.be.technifutur.event.controller;
 
 import src.be.technifutur.event.Planning;
+import src.be.technifutur.event.activities.Activity;
 import src.be.technifutur.event.participant.Participant;
-
 import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.UUID;
@@ -17,30 +17,12 @@ public class ParticipantController {
         this.sc = new SubscriptionController(planning);
     }
 
-    public void addParticipant(Participant p){
-        pList.add(p);
-    }
-
-    public void deleteParticipant(){
-
-        if (pList.size() != 0) {
-            LinkedList<Participant> selection = lc.selectMultipleItem(pList, "participant(s)");
-
-            for (Participant p : selection){
-                sc.removeParticipantFromActivities(p);
-                pList.remove(p);
-            }
-        }
-        else
-            System.out.println("No participant in the planning!");
-    }
-
     public void start(){
         int action = 0;
         Scanner scan = new Scanner(System.in);
 
         while (action != 6){
-            System.out.println("""
+            System.out.print("""
                     1.Show participants
                     2.Create participant
                     3.Delete participant
@@ -52,11 +34,11 @@ public class ParticipantController {
                 action = Integer.parseInt(scan.nextLine());
                 if (action >= 1 && action <= 5) {
                     switch (action) {
-                        case 1 -> listIndividual();
-                        case 2 -> sc.addOneToManyActivities(createIndividual());
+                        case 1 -> showParticipants();
+                        case 2 -> sc.subOneParticipantToManyActivities(createParticipant());
                         case 3 -> deleteParticipant();
-                        case 4 -> modifyParticipant((Participant)lc.selectOneItem(pList, "participant"));
-                        case 5 -> sc.addManyToManyActivities();
+                        case 4 -> modifyParticipant(lc.selectOneItem(pList, "participant"));
+                        case 5 -> sc.subManyParticipantsToManyActivities();
                     }
                 }
                 else if (action != 6)
@@ -67,22 +49,45 @@ public class ParticipantController {
             }
         }
     }
-    public Participant createIndividual(){
+
+    /** Shows every participant of the planning with detailed information*/
+    public void showParticipants(){
+        if (pList.size() != 0){
+            for (Participant p : pList) {
+                String output = String.format("%s %s\n", p.getName(), p.getLastName());
+                System.out.printf("%s", output);
+                for (int i = 0; i < output.length(); i++)
+                    System.out.print("-");
+                System.out.printf("\nClub: %s\n", p.getClub());
+                if (p.getActivitiesList().size() != 0) {
+                    for (Activity a : p.getActivitiesList()) {
+                        System.out.printf("participate to: %s\n", a);
+                    }
+                } else
+                    System.out.println("\nNo subscription to activity yet!");
+                System.out.println("\n");
+            }
+        } else
+            System.out.println("No participant in the planning yet!\n");
+    }
+
+    /** Create a new Participant and add it in the participant's list of the planning*/
+    public Participant createParticipant(){
         Scanner scan = new Scanner(System.in);
         Participant i = new Participant();
         String  input;
 
-        System.out.printf("Name : ");
+        System.out.print("Name : ");
         input = scan.nextLine();
         i.setName(input);
-        System.out.printf("Last name : ");
+        System.out.print("Last name : ");
         input = scan.nextLine();
         i.setLastName(input);
-        System.out.printf("Club : ");
+        System.out.print("Club : ");
         input = scan.nextLine();
         i.setClub(input);
         i.setId(UUID.randomUUID().toString());
-        addParticipant(i);
+        pList.add(i);
         return i;
     }
 
@@ -102,7 +107,6 @@ public class ParticipantController {
                 try {
                     action = Integer.parseInt(scan.nextLine());
                     if (action >= 1 && action <= 3) {
-                        String str;
                         switch (action) {
                             case 1 -> p.setName(getNewAttribute("name"));
                             case 2 -> p.setLastName(getNewAttribute("lastname"));
@@ -124,21 +128,18 @@ public class ParticipantController {
         return scan.nextLine();
     }
 
-    public void listIndividual()
-    {
-        int i = 0;
+    /**Add Participant to the participant's list of the planning*/
+    public void deleteParticipant(){
 
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-        for (Participant ind : pList){
-            System.out.println(++i + ": " + ind);
+        if (pList.size() != 0) {
+            LinkedList<Participant> selection = lc.selectMultipleItem(pList, "participant(s)");
+
+            for (Participant p : selection){
+                sc.removeParticipantFromActivities(p);
+                pList.remove(p);
+            }
         }
-        System.out.println("");
+        else
+            System.out.println("No participant in the planning!");
     }
-
-    public static void main(String[] args) {
-
-
-    }
-
 }

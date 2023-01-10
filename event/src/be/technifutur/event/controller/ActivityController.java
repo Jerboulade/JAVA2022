@@ -21,26 +21,25 @@ public class ActivityController {
         int action = 0;
         Scanner scan = new Scanner(System.in);
 
-        while (action != 6){
+        while (action != 5){
             System.out.print("""
                     1.Show activities
                     2.Create activity
-                    3.Delete activity
-                    4.Modify activity
-                    5.Add participant to activity
-                    6.Go back
+                    3.Delete activity (TODO)
+                    4.Modify activity (TODO)
+                    5.Go back
                     """);
             try {
                 action = Integer.parseInt(scan.nextLine());
-                if (action >= 1 && action <= 5) {
+                if (action >= 1 && action <= 4) {
                     switch (action) {
                         case 1 -> showActivities();
                         case 2 -> createActivity();
                         case 3 -> System.out.println("delete activity");
                         case 4 -> System.out.println("modify activity");
-                        case 5 -> System.out.println("add participant to activity");}
+                    }
                 }
-                else if (action != 6)
+                else if (action != 5)
                     System.out.println("-Wrong action!-");
             }
             catch (NumberFormatException e){
@@ -49,7 +48,7 @@ public class ActivityController {
         }
     }
 
-    public void showActivities(){
+    public void showActivities() {
         if (aList.size() != 0){
             DateTimeFormatter viewFormat = DateTimeFormatter.ofPattern("dd LLLL yyyy 'at' HH'h'mm");
             String attribute;
@@ -77,8 +76,8 @@ public class ActivityController {
                         }
                     }
                 } else
-                    System.out.println("none");
-                System.out.print("\n");
+                    System.out.print("none");
+                System.out.println("\n");
             }
         }
         else

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>Hotel list</h1>
+<ul>
+    <li th:each="hotel : ${hotels}" th:object="${hotel}">
+        <p th:class="*{stars} > 2 ? 'golden'">Name: <span th:text="*{name}"></span></p>
+        <p>Star(s): <span th:text="*{stars}"></span></p>
+        <p>Number of room: <span th:text="*{rooms}"></span></p>
+        <a th:href="'/hotel/' + *{name}">
+            <button>Détails</button>
+        </a>
+        <a th:href="@{/hotel/{str}(str=*{name})}">
+            <button>Détails</button>
+        </a>
+    </li>
+</ul>
+</body>
+</html>

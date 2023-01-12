@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1><span th:text="${hotel.name}"></span> </h1>
+    <div th:object="${hotel}">
+        <p>ID: <span th:text="*{id}"></span></p>
+        <p>Address: <span th:text="*{address}"></span></p>
+        <p>Stars: <span th:text="*{stars}"></span></p>
+        <p>Number of room: <span th:text="*{rooms}"></span></p>
+        <p>Groom: <span th:text="*{groom}"></span></p>
+    </div>
+</body>
+</html>

@@ -1,28 +1,38 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="../css/style.css">
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Room list</h1>
-    <ul>
-        <li th:each="room : ${rooms}" th:object="${room}">
-            <p>Room number: <span th:text="${room.roomNumber}"></span></p>
-            <p th:class="*{roomSize} >= 20 ? 'red'">Room size: <span th:text="${room.roomSize}"></span></p>
-            <p>Simple bed: <span th:text="${room.nbSimpleBed}"></span></p>
-            <p>Double bed: <span th:text="${room.nbDoubleBed}"></span></p>
-            <a th:href="'/room/' + *{roomNumber}">
-                <button>Détails</button>
-            </a>
-            <a th:href="@{/room/{num}(num=*{roomNumber})}">
-                <button>Détails</button>
-            </a>
-        </li>
-    </ul>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Montserrat');
+        </style>
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+    <body>
+        <div class="navbar">
+            <a class="a1" href="">Home</a>
+            <a href="/hotel/all">Hotel</a>
+            <a href="/room/all">Room</a>
+        </div>
+        <div class="container">
+            <h1>Room list</h1>
+            <ul>
+                <li th:each="room : ${rooms}" th:object="${room}">
+                    <p style="text-decoration: underline">Room number : <span th:text="${room.roomNumber}"></span></p>
+                    <p th:class="*{roomSize} >= 20 ? 'golden'">Size : <span th:text="${room.roomSize}"></span> m²</p>
+                    <p th:if="*{nbSimpleBed} > 0">Simple bed : <span th:text="${room.nbSimpleBed}"></span></p>
+                    <p th:if="*{nbDoubleBed} > 0">Double bed : <span th:text="${room.nbDoubleBed}"></span></p>
+                    <a th:href="@{/room/{num}(num=*{roomNumber})}">
+                        <input class="button2" type="button" value="See">
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer">
+            <a href="">Sources</a>
+        </div>
+    </body>
 </html>

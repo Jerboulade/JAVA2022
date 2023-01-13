@@ -1,5 +1,6 @@
 package be.technifutur.jcarere.mvc.controllers;
 
+import be.technifutur.jcarere.mvc.models.Hotel;
 import be.technifutur.jcarere.mvc.models.Room;
 import be.technifutur.jcarere.mvc.services.RoomService;
 import org.springframework.stereotype.Controller;
@@ -35,7 +36,9 @@ public class RoomController {
     //GET -> /room/1 -> voir chambre numero un tel
     @GetMapping("/room/{roomNumber}")
     public String oneRoom(Model model, @PathVariable int roomNumber){
-        model.addAttribute("room", roomService.getOne(roomNumber));
+        Room room = roomService.getOne(roomNumber);
+        model.addAttribute("room", room);
+        model.addAttribute("hotel", room.getHotel());
         return "room/one";
     }
 

@@ -14,15 +14,28 @@
 
     <body>
         <div class="navbar">
-            <a class="a1" href="">Home</a>
+            <a class="a1" href="/">Home</a>
             <a href="/hotel/all">Hotel</a>
             <a href="/room/all">Room</a>
+            <a href="/calculatrice">Calculatrice</a>
+
         </div>
 
         <div class="container">
             <h1 align="center" >My wonderful hotel manager</h1>
-        </div>
+            <p>random word list</p>
 
+
+            <input id="rand" type="text" placeholder="type a number">
+            <a href="/text/" id="getRef" >
+                <input onclick="goRef()" class="button2" type="button" value="Go">
+            </a>
+
+            <a href="/room/add">
+                <input class="button2" type="button" value="insert">
+            </a>
+            <script src="/js/random.js"></script>
+        </div>
         <div class="footer">
             <a href="">Sources</a>
         </div>

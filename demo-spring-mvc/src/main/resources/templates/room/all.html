@@ -13,7 +13,7 @@
     </head>
     <body>
         <div class="navbar">
-            <a class="a1" href="">Home</a>
+            <a class="a1" href="/">Home</a>
             <a href="/hotel/all">Hotel</a>
             <a href="/room/all">Room</a>
         </div>
@@ -25,7 +25,7 @@
                     <p th:class="*{roomSize} >= 20 ? 'golden'">Size : <span th:text="${room.roomSize}"></span> m²</p>
                     <p th:if="*{nbSimpleBed} > 0">Simple bed : <span th:text="${room.nbSimpleBed}"></span></p>
                     <p th:if="*{nbDoubleBed} > 0">Double bed : <span th:text="${room.nbDoubleBed}"></span></p>
-                    <a th:href="@{/room/{num}(num=*{roomNumber})}">
+                    <a th:href="@{/room/{id}(id=${room.id})}">
                         <input class="button2" type="button" value="See">
                     </a>
                 </li>

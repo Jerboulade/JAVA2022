@@ -7,10 +7,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
 @Controller // mon controller est un Bean (condition 1)
+@RequestMapping("/room")//sous-tend GetMapping
 public class RoomController {
 
     // On instancie pas le controller, on va faire de l'injection de dépendance:
@@ -25,7 +28,7 @@ public class RoomController {
     }
 
     //GET -> /room/all -> voir toutes les chambres
-    @GetMapping("/room/all")
+    @GetMapping("/all")
     public String allRooms(Model model){
         List<Room> rooms = roomService.getAll();
 
@@ -34,14 +37,38 @@ public class RoomController {
     }
 
     //GET -> /room/1 -> voir chambre numero un tel
-    @GetMapping("/room/{roomNumber}")
-    public String oneRoom(Model model, @PathVariable int roomNumber){
-        Room room = roomService.getOne(roomNumber);
+    @GetMapping("/{id}")
+    public String oneRoom(Model model, @PathVariable String id){
+        Room room = roomService.getOneById(id);
         model.addAttribute("room", room);
         model.addAttribute("hotel", room.getHotel());
         return "room/one";
     }
 
+    @GetMapping("/add")
+    public String insertForm(Model model){
 
+        model.addAttribute("room", new Room());
 
+        return "room/create";
+    }
+
+    @PostMapping("/add")
+    public String processInsert(Room form){
+        roomService.insert(form);
+        return "redirect:all";
+    }
+
+    @GetMapping("/update/{id}")
+    public String updateForm(Model model,@PathVariable  String id){
+        Room toUpdate = roomService.getOneById(id);
+        model.addAttribute("room", toUpdate);
+        return "room/udate";
+    }
+
+    @PostMapping("/update/{id}")
+    public String processUpdate(Room room, @PathVariable String id){
+        roomService.update(id, room);
+        return "redirect:/room/all";
+    }
 }

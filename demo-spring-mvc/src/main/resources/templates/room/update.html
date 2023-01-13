@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div class="navbar">
+    <a class="a1" href="">Home</a>
+    <a href="/hotel/all">Hotel</a>
+    <a href="/room/all">Room</a>
+</div>
+
+<div class="container">
+    <form th:action="@{/room/update/{id}(id=room.id)}" method="post" th:object="${room}">
+        <div>
+            <label for="in-num">Room Number</label><br/>
+            <input type="text" id="in-num" th:field="*{roomNumber}">
+        </div>
+        <div>
+            <label for="in-size">Size</label><br/>
+            <input type="text" id="in-size" th:field="*{roomSize}">
+        </div>
+        <div>
+            <label for="in-bed-simple">Number of simple bed</label><br/>
+            <input type="text" id="in-bed-simple" th:field="*{nbSimpleBed}">
+        </div>
+        <div>
+            <label for="in-bed-double">Number of double bed</label><br/>
+            <input type="text" id="in-bed-double" th:field="*{nbDoubleBed}">
+        </div>
+        <button type="submit">Send</button>
+    </form>
+</div>
+<div class="footer">
+    <a href="">Sources</a>
+</div>
+</body>
+</html>

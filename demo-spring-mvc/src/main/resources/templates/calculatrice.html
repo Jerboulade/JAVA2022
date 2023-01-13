@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+                @import url('https://fonts.googleapis.com/css?family=Montserrat');
+        </style>
+</head>
+
+<body>
+<div class="navbar">
+    <a class="a1" href="/">Home</a>
+    <a href="/hotel/all">Hotel</a>
+    <a href="/room/all">Room</a>
+</div>
+
+<div class="container">
+    <form class="container" th:action="@{/calculatrice}" method="post" th:object="${calc}">
+        <div>
+            <p for="num-1">Number 1 :</p>
+            <input type="text" id="num-1" th:field="*{num1}">
+        </div>
+        <div>
+            <p for="num-2">Number 2 :</p>
+            <input type="text" id="num-2" th:field="*{num2}">
+        </div>
+        <div>
+            <p for="operation">Operation (+ - * /)</p>
+            <input type="text" id="operation" th:field="*{op}">
+        </div>
+        <div>
+            <p>Result = <span th:text="${result}"></span></p>
+        </div>
+        <button type="submit">Compute</button>
+    </form>
+</div>
+<div class="footer">
+    <a href="">Sources</a>
+</div>
+</body>
+</html>

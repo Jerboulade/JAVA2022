@@ -41,7 +41,6 @@ public class RoomController {
     public String oneRoom(Model model, @PathVariable String id){
         Room room = roomService.getOneById(id);
         model.addAttribute("room", room);
-        model.addAttribute("hotel", room.getHotel());
         return "room/one";
     }
 
@@ -60,7 +59,7 @@ public class RoomController {
     }
 
     @GetMapping("/update/{id}")
-    public String updateForm(Model model,@PathVariable  String id){
+    public String updateForm(Model model,@PathVariable String id){
         Room toUpdate = roomService.getOneById(id);
         model.addAttribute("room", toUpdate);
         return "room/udate";

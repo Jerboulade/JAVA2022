@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
+//@AllArgsConstructor
 @NoArgsConstructor
 public class Room {
     private String  id;
@@ -14,7 +14,7 @@ public class Room {
     private int     nbSimpleBed;
     private int     nbDoubleBed;
     private Hotel   hotel;
-/*
+
     public Room(String id, int roomNumber, int roomSize, int nbSimpleBed, int nbDoubleBed, Hotel hotel) {
         this.id = id;
         this.roomNumber = roomNumber;
@@ -24,16 +24,14 @@ public class Room {
         this.setHotel(hotel);
     }
 
- */
+
 
     public void setHotel(Hotel hotel) {
 
-        if(hotel != null){
+        if(hotel != null && this.hotel != null)
             this.hotel.setRooms( hotel.getRooms()-1 );
-        }
         this.hotel = hotel;
-        if(hotel != null){
+        if(hotel != null)
             this.hotel.setRooms( hotel.getRooms()+1 );
-        }
     }
 }

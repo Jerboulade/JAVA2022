@@ -28,7 +28,7 @@
                     <li th:each="room : ${rooms}" th:object="${room}">
                         <p style="text-decoration: underline">Room number : <span th:text="*{roomNumber}"></span></p>
                         <p th:class="*{roomSize} >= 20 ? 'red'">Room size : <span th:text="${room.roomSize}"></span></p>
-                        <a th:href="@{/room/{num}(num=*{roomNumber})}">
+                        <a th:href="@{/room/{num}(num=*{id})}">
                             <input class="button2" type="button" value="See">
                         </a>
                     </li>

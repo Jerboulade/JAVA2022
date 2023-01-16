@@ -18,8 +18,8 @@
             <a href="/room/all">Room</a>
         </div>
         <div class="container" th:object="${room}">
-            <h2 ><span th:if="${hotel} != null" th:text="${hotel.name}"></span> : room <span th:text="${roomNumber}"></span> </h2>
-            <p th:if="${hotel} != null">Hotel : <a th:href="@{/hotel/{name}(name=${hotel.name})}" th:text="${hotel.name}"></a></p>
+            <h2 ><span th:if="*{hotel} != null" th:text="*{hotel.name}"></span> : room <span th:text="*{roomNumber}"></span> </h2>
+            <p th:if="*{hotel} != null">Hotel : <a th:href="@{/hotel/{name}(name=*{hotel.name})}" th:text="*{hotel.name}"></a></p>
             <div>
                 <p>Room size : <span th:text="*{roomSize}"></span></p>
                 <p>Simple bed : <span th:text="*{nbSimpleBed}"></span></p>

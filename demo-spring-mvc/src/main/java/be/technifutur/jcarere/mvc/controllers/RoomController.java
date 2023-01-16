@@ -2,15 +2,16 @@ package be.technifutur.jcarere.mvc.controllers;
 
 import be.technifutur.jcarere.mvc.models.Hotel;
 import be.technifutur.jcarere.mvc.models.Room;
+import be.technifutur.jcarere.mvc.services.HotelService;
 import be.technifutur.jcarere.mvc.services.RoomService;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 @Controller // mon controller est un Bean (condition 1)
 @RequestMapping("/room")//sous-tend GetMapping
@@ -22,9 +23,12 @@ public class RoomController {
     // 2 - il existe un Bean qui correspond au type de la dépendance souhaitée
     // 3 - la dépendance est déclarée
     private final RoomService roomService;
+    private final HotelService hotelService;
 
-    public RoomController(RoomService roomService) {
+
+    public RoomController(RoomService roomService, HotelService hotelService) {
         this.roomService = roomService; // (condition 3)
+        this.hotelService = hotelService;
     }
 
     //GET -> /room/all -> voir toutes les chambres
@@ -40,15 +44,17 @@ public class RoomController {
     @GetMapping("/{id}")
     public String oneRoom(Model model, @PathVariable String id){
         Room room = roomService.getOneById(id);
+
         model.addAttribute("room", room);
         return "room/one";
     }
 
     @GetMapping("/add")
     public String insertForm(Model model){
-
+        Stream stream;
         model.addAttribute("room", new Room());
-
+        //model.addAttribute("hotels", hotelService.getAll().stream().map(Hotel::getName).toList());
+        model.addAttribute("hotels", hotelService.getAll());
         return "room/create";
     }
 
@@ -62,7 +68,7 @@ public class RoomController {
     public String updateForm(Model model,@PathVariable String id){
         Room toUpdate = roomService.getOneById(id);
         model.addAttribute("room", toUpdate);
-        return "room/udate";
+        return "room/update";
     }
 
     @PostMapping("/update/{id}")
@@ -70,4 +76,5 @@ public class RoomController {
         roomService.update(id, room);
         return "redirect:/room/all";
     }
+
 }

@@ -19,6 +19,9 @@
         </div>
         <div class="container">
             <h1>Hotel list</h1>
+            <a href="/hotel/add">
+                <input class="button2" type="button" value="Create new hotel">
+            </a>
             <ul>
                 <li th:each="hotel : ${hotels}" th:object="${hotel}">
                     <p style="text-decoration: underline"><a th:class="*{stars} > 2 ? 'golden' : 'div'" th:href="@{/hotel/{str}(str=*{name})}" th:text="*{name}"></a></p>

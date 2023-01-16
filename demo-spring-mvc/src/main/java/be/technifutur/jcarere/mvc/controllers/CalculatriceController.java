@@ -3,6 +3,7 @@ package be.technifutur.jcarere.mvc.controllers;
 import be.technifutur.jcarere.mvc.models.Calculatrice;
 import be.technifutur.jcarere.mvc.models.Room;
 import be.technifutur.jcarere.mvc.services.CalculatriceService;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,7 +27,7 @@ public class CalculatriceController {
 
 
     @PostMapping("/calculatrice")
-    public String processInsert(Model model, Calculatrice form){
+    public String processInsert(Model model, @Valid Calculatrice form){
         Float res = null;
 
         switch (form.getOp()) {
@@ -34,6 +35,7 @@ public class CalculatriceController {
             case "-" -> res = calculatriceService.substraction(form.getNum1(), form.getNum2());
             case "*" -> res = calculatriceService.multiplication(form.getNum1(), form.getNum2());
             case "/" -> res = calculatriceService.division(form.getNum1(), form.getNum2());
+            //default -> throw new IllegalStateException("Not a valid operation");
         }
         Calculatrice newCalc = new Calculatrice();
         if (res != null)

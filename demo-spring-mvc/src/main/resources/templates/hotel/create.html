@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            @import url('https://fonts.googleapis.com/css?family=Montserrat');
+        </style>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="navbar">
+    <a class="a1" href="/">Home</a>
+    <a href="/hotel/all">Hotel</a>
+    <a href="/room/all">Room</a>
+</div>
+
+<div class="container">
+    <form th:action="@{/hotel/add}" method="post" th:object="${hotelForm}">
+        <div>
+            <p for="in-id">Id</p>
+            <input type="text" id="in-id" th:field="*{id}"></br>
+            <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}" class="text-danger">
+        </div>
+        <div>
+            <p for="in-name">Name</p>
+            <input type="text" id="in-name" th:field="*{name}"></br>
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger">
+        </div>
+        <div>
+            <p for="in-address">Address</p>
+            <input type="text" id="in-address" th:field="*{address}"></br>
+            <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}" class="text-danger">
+        </div>
+        <div>
+            <p for="in-stars">Number of stars</p>
+            <input type="text" id="in-stars" th:field="*{stars}"></br>
+            <span th:if="${#fields.hasErrors('stars')}" th:errors="*{stars}" class="text-danger">
+
+        </div>
+        <div>
+            <p for="in-groom">Groom name</p>
+            <input type="text" id="in-groom" th:field="*{groom}"></br>
+            <span th:if="${#fields.hasErrors('groom')}" th:errors="*{groom}" class="text-danger">
+        </div>
+        </br>
+        <button class="button2" type="submit">Send</button>
+    </form>
+</div>
+<div class="footer">
+    <a href="">Sources</a>
+</div>
+</body>
+</html>

@@ -21,6 +21,11 @@ p{
 	text-align: justify;
 }
 
+.text-danger{
+    color: red;
+    font-size: 0.8em;
+}
+
 h1{
 	font-size: 2.4em;
 	color: #bc994e;
@@ -140,7 +145,7 @@ img{
     color: #bc994e;
 }
 
-/* dice.css */
+/* -----------------------------DICE----------------------------- */
 .dice-container {
   width: 200px;
   margin: 0 auto;

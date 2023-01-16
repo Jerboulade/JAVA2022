@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class CalculatriceController {
@@ -20,38 +21,24 @@ public class CalculatriceController {
     public String insertForm(Model model){
 
         model.addAttribute("calc", new Calculatrice());
-
         return "/calculatrice";
     }
 
     @PostMapping("/calculatrice")
     public String processInsert(Model model, Calculatrice form){
-        float res = 0;
-        String result;
+        Float res = null;
 
-        if (form.getOp().equals("+")) {
-            res = calculatriceService.addition(form.getNum1(), form.getNum2());
-            result = String.valueOf(res);
+        switch (form.getOp()) {
+            case "+" -> res = calculatriceService.addition(form.getNum1(), form.getNum2());
+            case "-" -> res = calculatriceService.substraction(form.getNum1(), form.getNum2());
+            case "*" -> res = calculatriceService.multiplication(form.getNum1(), form.getNum2());
+            case "/" -> res = calculatriceService.division(form.getNum1(), form.getNum2());
         }
-        else if (form.getOp().equals("-")) {
-            res = calculatriceService.substraction(form.getNum1(), form.getNum2());
-            result = String.valueOf(res);
-        }
-        else if (form.getOp().equals("*")) {
-            res = calculatriceService.multiplication(form.getNum1(), form.getNum2());
-            result = String.valueOf(res);
-        }
-        else if (form.getOp().equals("/")) {
-            res = calculatriceService.division(form.getNum1(), form.getNum2());
-            result = String.valueOf(res);
-        }
-        else
-            result = "Not a valid operation";
         Calculatrice newCalc = new Calculatrice();
-        newCalc.setNum1(res);
-        model.addAttribute("calc", new Calculatrice());
-
-        model.addAttribute("result", result);
+        if (res != null)
+            newCalc.setNum1(res);
+        model.addAttribute("calc", newCalc);
+        model.addAttribute("result", res == null ? "Not a valid operation" : res);
         return "/calculatrice";
     }
 }

@@ -19,6 +19,9 @@
         </div>
         <div class="container">
             <h1>Room list</h1>
+            <a href="/room/add">
+                <input class="button2" type="button" value="Create new room">
+            </a>
             <ul>
                 <li th:each="room : ${rooms}" th:object="${room}">
                     <p style="text-decoration: underline">Room number : <span th:text="${room.roomNumber}"></span></p>

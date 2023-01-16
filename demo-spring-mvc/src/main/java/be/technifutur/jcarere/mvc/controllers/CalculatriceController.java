@@ -24,6 +24,7 @@ public class CalculatriceController {
         return "/calculatrice";
     }
 
+
     @PostMapping("/calculatrice")
     public String processInsert(Model model, Calculatrice form){
         float res = 0;

@@ -20,31 +20,32 @@
 
 <div class="container">
     <form th:action="@{/hotel/add}" method="post" th:object="${hotelForm}">
+        </br>
         <div>
             <p for="in-id">Id</p>
             <input type="text" id="in-id" th:field="*{id}"></br>
-            <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}" class="text-danger">
+            <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}" class="text-danger"></span>
         </div>
         <div>
             <p for="in-name">Name</p>
             <input type="text" id="in-name" th:field="*{name}"></br>
-            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger">
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
         </div>
         <div>
             <p for="in-address">Address</p>
             <input type="text" id="in-address" th:field="*{address}"></br>
-            <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}" class="text-danger">
+            <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}" class="text-danger"></span>
         </div>
         <div>
             <p for="in-stars">Number of stars</p>
             <input type="text" id="in-stars" th:field="*{stars}"></br>
-            <span th:if="${#fields.hasErrors('stars')}" th:errors="*{stars}" class="text-danger">
+            <span th:if="${#fields.hasErrors('stars')}" th:errors="*{stars}" class="text-danger"></span>
 
         </div>
         <div>
             <p for="in-groom">Groom name</p>
             <input type="text" id="in-groom" th:field="*{groom}"></br>
-            <span th:if="${#fields.hasErrors('groom')}" th:errors="*{groom}" class="text-danger">
+            <span th:if="${#fields.hasErrors('groom')}" th:errors="*{groom}" class="text-danger"></span>
         </div>
         </br>
         <button class="button2" type="submit">Send</button>

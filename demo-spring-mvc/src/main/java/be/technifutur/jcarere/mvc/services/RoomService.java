@@ -2,6 +2,7 @@ package be.technifutur.jcarere.mvc.services;
 
 import be.technifutur.jcarere.mvc.models.Hotel;
 import be.technifutur.jcarere.mvc.models.Room;
+import be.technifutur.jcarere.mvc.models.RoomForm;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,10 +13,12 @@ import java.util.UUID;
 public class RoomService {
 
     private final List<Room> roomList = new ArrayList<>();
+    HotelService hotelService;
 
     public RoomService(HotelService hotelService){
         Hotel hotel;
 
+        this.hotelService = hotelService;
         hotel = hotelService.getHotelByName("Campanil");
         roomList.add (new Room(UUID.randomUUID().toString(), 1, 10, 1, 0, hotel));
         roomList.add(new Room(UUID.randomUUID().toString(),2, 15, 0, 1, hotel));
@@ -53,17 +56,25 @@ public class RoomService {
                 .toList();
     }
 
-    public void insert(Room room){
+    public void insert(RoomForm form){
+        Room room = new Room();
+
         room.setId(UUID.randomUUID().toString());
+        room.setRoomSize(form.getRoomSize());
+        room.setRoomNumber(form.getRoomNumber());
+        room.setNbSimpleBed(form.getNbSimpleBed());
+        room.setNbDoubleBed(form.getNbDoubleBed());
+        System.out.println(form.getHotelId());
+        room.setHotel(hotelService.getHotelByID(form.getHotelId()));
         roomList.add(room);
     }
 
-    public void update(String id, Room room){
+    public void update(String id, RoomForm form){
         Room toUpdate = getOneById(id);
 
-        toUpdate.setRoomNumber(room.getRoomNumber());
-        toUpdate.setRoomSize(room.getRoomSize());
-        toUpdate.setNbSimpleBed(room.getNbSimpleBed());
-        toUpdate.setNbDoubleBed(room.getNbDoubleBed());
+        toUpdate.setRoomNumber(form.getRoomNumber());
+        toUpdate.setRoomSize(form.getRoomSize());
+        toUpdate.setNbSimpleBed(form.getNbSimpleBed());
+        toUpdate.setNbDoubleBed(form.getNbDoubleBed());
     }
 }

@@ -31,6 +31,13 @@ public class HotelService {
                 .orElseThrow(() -> new RuntimeException("Ce nom d'hotel n'existe pas"));
     }
 
+    public Hotel getHotelByID(String id){
+        return hotelList.stream()
+                .filter(hotel -> hotel.getId().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Cet hotel n'existe pas"));
+    }
+
     public void createHotel(HotelForm form){
         Hotel hotel = new Hotel();
 

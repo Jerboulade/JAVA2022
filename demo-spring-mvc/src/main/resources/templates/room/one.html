@@ -25,6 +25,9 @@
                 <p>Simple bed : <span th:text="*{nbSimpleBed}"></span></p>
                 <p>Double bed : <span th:text="*{nbDoubleBed}"></span></p>
             </div>
+            <a th:href="@{/room/update/{id}(id=${room.id})}">
+                <input class="button2" type="button" value="Update room">
+            </a>
         </div>
         <div class="footer">
             <a href="">Sources</a>

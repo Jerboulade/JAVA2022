@@ -1,7 +1,9 @@
 package be.technifutur.jcarere.mvc.controllers;
 
 import be.technifutur.jcarere.mvc.models.Hotel;
+import be.technifutur.jcarere.mvc.models.HotelForm;
 import be.technifutur.jcarere.mvc.models.Room;
+import be.technifutur.jcarere.mvc.models.RoomForm;
 import be.technifutur.jcarere.mvc.services.HotelService;
 import be.technifutur.jcarere.mvc.services.RoomService;
 import jakarta.validation.Valid;
@@ -52,14 +54,15 @@ public class RoomController {
     @GetMapping("/add")
     public String insertForm(Model model){
         Stream stream;
-        model.addAttribute("room", new Room());
+
+        model.addAttribute("room", new RoomForm());
         //model.addAttribute("hotels", hotelService.getAll().stream().map(Hotel::getName).toList());
         model.addAttribute("hotels", hotelService.getAll());
         return "room/create";
     }
 
     @PostMapping("/add")
-    public String processInsert(Room form){
+    public String processInsert(RoomForm form){
         roomService.insert(form);
         return "redirect:all";
     }
@@ -67,13 +70,19 @@ public class RoomController {
     @GetMapping("/update/{id}")
     public String updateForm(Model model,@PathVariable String id){
         Room toUpdate = roomService.getOneById(id);
-        model.addAttribute("room", toUpdate);
+        RoomForm form = new RoomForm();
+        form.setRoomSize(toUpdate.getRoomSize());
+        form.setRoomNumber(toUpdate.getRoomNumber());
+        form.setNbSimpleBed(toUpdate.getNbSimpleBed());
+        form.setNbDoubleBed(toUpdate.getNbDoubleBed());
+        model.addAttribute("form",form);
+        model.addAttribute("room_id", toUpdate.getId());
         return "room/update";
     }
 
     @PostMapping("/update/{id}")
-    public String processUpdate(Room room, @PathVariable String id){
-        roomService.update(id, room);
+    public String processUpdate(RoomForm form, @PathVariable String id){
+        roomService.update(id, form);
         return "redirect:/room/all";
     }
 

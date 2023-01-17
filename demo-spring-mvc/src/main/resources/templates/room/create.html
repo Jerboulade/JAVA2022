@@ -22,30 +22,25 @@
     <form th:action="@{/room/add}" method="post" th:object="${room}">
         <div>
             <p for="in-num">Room Number</p>
-            <input type="text" id="in-num" th:field="*{roomNumber}">
+            <input type="text" id="in-num" th:field="*{roomNumber}"></br>
         </div>
         <div>
             <p for="in-size">Size</p>
-            <input type="text" id="in-size" th:field="*{roomSize}">
+            <input type="text" id="in-size" th:field="*{roomSize}"></br>
         </div>
         <div>
             <p for="in-bed-simple">Number of simple bed</p>
-            <input type="text" id="in-bed-simple" th:field="*{nbSimpleBed}">
+            <input type="text" id="in-bed-simple" th:field="*{nbSimpleBed}"></br>
         </div>
         <div>
             <p for="in-bed-double">Number of double bed</p>
-            <input type="text" id="in-bed-double" th:field="*{nbDoubleBed}">
+            <input type="text" id="in-bed-double" th:field="*{nbDoubleBed}"></br>
         </div>
-        <div>
-            <p for="in-hotel">Number of double bed</p>
-            <input type="text" id="in-hotel" th:field="*{nbDoubleBed}">
-        </div>
-
-        <select name="hotels" th:field="${room.hotel}">
-            <option th:each="hotel : ${hotels}" th:object="${hotel}" th:text="*{name}"  th:value ="${hotel}"></option>
-        </select>
-
         </br>
+        <select name="hotels" th:field="*{hotelId}">
+            <option th:each="hotel : ${hotels}" th:text="${hotel.name}" th:value="${hotel.id}"></option>
+        </select>
+        </br></br>
         <button class="button2" type="submit">Send</button>
     </form>
 </div>

@@ -1,0 +1,34 @@
+// won't work in first place
+mvn compile
+
+// first: create pom.xml
+touch pom.xml
+
+// won't work because pom.xml is empty
+mvn compile
+
+// see POM minimim : https://maven.apache.org/guides/introduction/introduction-to-the-pom.html
+<project>
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.mycompany.app</groupId>
+  <artifactId>my-app</artifactId>
+  <version>1</version>
+</project>
+
+// compilation will now work but there is nothing to compile
+// must indicate where Maven have to search in order to find sources
+// --> POM effective
+ mvn help:effective-pom
+
+// le POM utilisé par Maven n'est qu'un petit partie d'un pom par default --> ce pom.xml works as an override of the main POM
+mvn help:effective-pom | grep sourceDirectory
+    <sourceDirectory>C:\Users\studentjava01\Desktop\Java\Git\java2022\test-maven\myFrameWork2021\src\main\java</sourceDirectory>
+
+// the compiler want to go to src/main/java to compile sources --> let's create the repo
+mkdir src/main/java
+// and move the project (be/) + module-info.java into src/main/java
+
+
+
+// doesn't file module 'slf4j.api' --> see https://mvnrepository.com/artifact/org.slf4j/slf4j-api

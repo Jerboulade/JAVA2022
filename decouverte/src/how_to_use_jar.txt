@@ -1,0 +1,21 @@
+// create 'test.jar' file with 'TestStruct' as main class from the repo 'be' in 'decouverte'
+// -c create
+// -f file
+// -e will add the main class in 'META-INF/MANIFEST.MF' as main class
+// -C from repo
+jar -c -f test.jar -e be.technifutur.decouverte.structure.TestStruct -C out/production/decouverte/ .
+
+// launch main class
+java -jar jar_file.jar
+
+// if no class main in the 'META-INF/MANIFEST.MF' (if no -e specified during creation)
+java -cp test.jar path.to.Class.class (ex: 'be.technifutur.decouverte.stream.ArrayToStream')
+
+// extract a file from 'jar_file.jar'
+// -x extract
+// -f file
+jar -xf test.jar META-INF/MANIFEST.MF
+
+// list file in .jar
+// -t list
+jar -t -f test.jar

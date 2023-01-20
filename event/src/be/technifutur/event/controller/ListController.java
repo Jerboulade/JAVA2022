@@ -7,7 +7,7 @@ public class ListController {
     public ListController() {
     }
 
-    public <T>LinkedList<T> selectMultipleItem(LinkedList<T> list, String itemLabel){
+    public <T> LinkedList<T> selectMultipleItem(LinkedList<T> list, String itemLabel){
         LinkedList<T> selection = new LinkedList<>();
 
         if (list.size() != 0){
@@ -34,7 +34,7 @@ public class ListController {
         return selection;
     }
 
-    public <T>T selectOneItem(LinkedList<T> list, String itemLabel){
+    public <T> T selectOneItem(LinkedList<T> list, String itemLabel){
         T selection = null;
 
         if (list.size() != 0){

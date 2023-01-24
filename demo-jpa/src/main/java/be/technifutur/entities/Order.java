@@ -54,12 +54,11 @@ public class Order {
     @Column(name = "ship_country")
     private String shipCountry;
 
-    @ManyToMany
-    @JoinTable(name = "order_details",
-            joinColumns = @JoinColumn(name = "order_id"),
-            inverseJoinColumns = @JoinColumn(name = "product_id"))
-    private Set<Product> products = new LinkedHashSet<>();
+    @OneToMany(mappedBy = "order")
+    private Set<OrderDetail> details = new LinkedHashSet<>();
 
-
+    @ManyToOne
+    @JoinColumn(name = "employee_id")
+    private Employee managedBy;
 
 }

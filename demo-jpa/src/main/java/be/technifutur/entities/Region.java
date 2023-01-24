@@ -1,11 +1,26 @@
 package be.technifutur.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
-@Data
 @Table(name = "region")
+@Getter
+@Setter
 public class Region {
+    @Id
+    @Column(name = "region_id")
+    private Short id;
+
+    @Column(name = "region_description")
+    private String regionDescription;
+
+    @OneToMany(mappedBy = "region")
+    private Set<Territory> territories = new LinkedHashSet<>();
+
 }

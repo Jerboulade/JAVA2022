@@ -28,19 +28,26 @@ public class Product {
     private int stock;
 
     @Column(name = "units_on_order")
-    private int onOrder;
+    private Integer onOrder;
 
     @Column(name = "reorder_level")
-    private int reorderLevel;
+    private Integer reorderLevel;
 
-    private int discontinued;
+    private Integer discontinued;
+
+    @Column(name = "unit_price")
+    private Double unitPrice;
 
     @ManyToOne
     @JoinColumn(name = "supplier_id")
     private Supplier supplier;
 
-    @ManyToMany(mappedBy = "products")
-    private Set<Order> orders = new LinkedHashSet<>();
+    @OneToMany(mappedBy = "product")
+    private Set<OrderDetail> orderDetails = new LinkedHashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
     @Override
     public boolean equals(Object o) {

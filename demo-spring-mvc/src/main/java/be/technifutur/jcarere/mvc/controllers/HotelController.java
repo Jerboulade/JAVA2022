@@ -1,8 +1,7 @@
 package be.technifutur.jcarere.mvc.controllers;
 
 import be.technifutur.jcarere.mvc.models.Hotel;
-import be.technifutur.jcarere.mvc.models.HotelForm;
-import be.technifutur.jcarere.mvc.models.Room;
+import be.technifutur.jcarere.mvc.models.form.HotelForm;
 import be.technifutur.jcarere.mvc.services.HotelService;
 import be.technifutur.jcarere.mvc.services.RoomService;
 import jakarta.validation.Valid;

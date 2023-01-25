@@ -1,15 +1,11 @@
 package be.technifutur.jcarere.mvc.controllers;
 
-import be.technifutur.jcarere.mvc.models.Hotel;
-import be.technifutur.jcarere.mvc.models.HotelForm;
 import be.technifutur.jcarere.mvc.models.Room;
-import be.technifutur.jcarere.mvc.models.RoomForm;
+import be.technifutur.jcarere.mvc.models.form.RoomForm;
 import be.technifutur.jcarere.mvc.services.HotelService;
 import be.technifutur.jcarere.mvc.services.RoomService;
-import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

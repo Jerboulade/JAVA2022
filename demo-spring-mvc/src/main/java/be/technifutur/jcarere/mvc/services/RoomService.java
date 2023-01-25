@@ -2,7 +2,7 @@ package be.technifutur.jcarere.mvc.services;
 
 import be.technifutur.jcarere.mvc.models.Hotel;
 import be.technifutur.jcarere.mvc.models.Room;
-import be.technifutur.jcarere.mvc.models.RoomForm;
+import be.technifutur.jcarere.mvc.models.form.RoomForm;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package be.technifutur.jcarere.mvc.models;
+package be.technifutur.jcarere.mvc.models.form;
 
 import jakarta.validation.constraints.*;
 import lombok.Data;

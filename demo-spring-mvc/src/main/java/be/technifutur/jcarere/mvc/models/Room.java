@@ -15,6 +15,7 @@ public class Room {
     private int     nbDoubleBed;
     private Hotel   hotel;
 
+
     public Room(String id, int roomNumber, int roomSize, int nbSimpleBed, int nbDoubleBed, Hotel hotel) {
         this.id = id;
         this.roomNumber = roomNumber;

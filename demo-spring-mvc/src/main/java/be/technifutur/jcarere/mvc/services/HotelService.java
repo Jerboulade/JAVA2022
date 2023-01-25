@@ -1,8 +1,7 @@
 package be.technifutur.jcarere.mvc.services;
 
-import be.technifutur.jcarere.mvc.controllers.HotelController;
 import be.technifutur.jcarere.mvc.models.Hotel;
-import be.technifutur.jcarere.mvc.models.HotelForm;
+import be.technifutur.jcarere.mvc.models.form.HotelForm;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

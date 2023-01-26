@@ -12,7 +12,7 @@ import java.util.Optional;
 public abstract class AbstractCrudRepository<TENTITY, TID> implements CrudRepository<TENTITY, TID>{
 
     private final Class<TENTITY> entityClass;
-    private final EntityManager entityManager;
+    protected final EntityManager entityManager;
 
     protected AbstractCrudRepository(Class<TENTITY> entityClass, EntityManager entityManager) {
         this.entityClass = entityClass;
@@ -22,11 +22,11 @@ public abstract class AbstractCrudRepository<TENTITY, TID> implements CrudReposi
     @Override
     public List<TENTITY> getAll() {
         String entityName = entityClass.getSimpleName();
-        String qlQuery = "SELECT e FROM "+entityName+" e";
+        String qlQuery = "SELECT e FROM " + entityName + " e";
         // String qlQuery = String.format("SELECT e FROM %s e", entityName);
         TypedQuery<TENTITY> query = entityManager.createQuery(qlQuery, entityClass);
         List<TENTITY> list = query.getResultList();
-        entityManager.detach(list);
+        entityManager.clear();
         return list;
     }
 
@@ -38,23 +38,10 @@ public abstract class AbstractCrudRepository<TENTITY, TID> implements CrudReposi
     }
 
     @Override
-    public void create(TENTITY entity) {
+    public void save(TENTITY entity) {
         entityManager.getTransaction().begin();
-        entityManager.persist(entity);
+        entityManager.merge(entity);
         entityManager.getTransaction().commit();
-    }
-
-    public abstract void adaptId(TID id, TENTITY entity);
-
-    @Override
-    public void update(TID id, TENTITY entity) {
-        if (getById(id).isPresent()){
-            entityManager.getTransaction().begin();
-            adaptId(id, entity);
-            entityManager.merge(entity);
-            entityManager.getTransaction().commit();
-        }
-
     }
 
     @Override
@@ -96,4 +83,11 @@ public abstract class AbstractCrudRepository<TENTITY, TID> implements CrudReposi
         entityManager.remove(toDelete);
         entityManager.getTransaction().commit();
     }
+
+    @Override
+    public boolean existsById(TID id){
+        return entityManager.find(entityClass, id) != null;
+    }
+
+
 }

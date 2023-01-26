@@ -15,6 +15,9 @@ public class Customer extends Person{
     @Column(name = "customer_id")
     private Long            id;
 
+    @Column(name = "user_name", nullable = false)
+    private String userName;
+
     @Column(nullable = false)
     private String          password;
 

@@ -9,9 +9,9 @@ import java.util.List;
 import java.util.UUID;
 
 public interface PilotRepository extends JpaRepository<Pilot, UUID> {
-    public List<Pilot> findByFirstNameStartingWith(String start);
+    List<Pilot> findByFirstNameStartingWith(String start);
 
     @Query("SELECT p FROM Pilot p WHERE p.firstName = p.lastName")
-    public List<Pilot> findPilotWithSameName();
+    List<Pilot> findPilotWithSameName();
 
 }

@@ -8,6 +8,8 @@ public class TimairportApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TimairportApplication.class, args);
+
+		System.out.println("Coucou");
 	}
 
 }

@@ -18,6 +18,7 @@ public class Flight {
 
     @Column(name = "departure_time", nullable = false)
     private LocalDateTime departureTime;
+
     @Column(name = "arrival_time", nullable = false)
     private LocalDateTime arrivalTime;
 
@@ -36,6 +37,7 @@ public class Flight {
     @ManyToOne
     @JoinColumn(name = "captain_id", nullable = false)
     private Pilot captain;
+
     @ManyToOne
     @JoinColumn(name = "first_officer_id", nullable = false)
     private Pilot firstOfficer;

@@ -13,6 +13,8 @@ import be.technifutur.java.timairport.repository.TypePlaneRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -53,14 +55,34 @@ public class PlaneServiceImpl implements PlaneService{
 
     @Override
     public List<PlaneDTO> getALL() {
-
-
-
         return planeRepository.findAll()
                 .stream()
                 .map(planeMapper::toDto)
                 .toList();
+    }
 
+    @Override
+    public void updateMaintenance(UUID id, boolean maintenance) {
+        planeRepository.updateMaintenance(id, maintenance);
+    }
+
+    @Override
+    public void updateCompany(UUID idPlane, UUID idCompany) {
+        planeRepository.updateCompany(idPlane, companyRepository.findById(idCompany).orElseThrow());
+    }
+
+    @Override
+    public void updateBoth(UUID idPlane, Map<String, Object> updateData) {
+        Plane plane = planeRepository.findById(idPlane).orElseThrow(RuntimeException::new);
+
+        if (updateData.containsKey("companyId")){
+            UUID companyId = (UUID)updateData.get("companyId");
+            Company company = companyRepository.findById(companyId).orElseThrow(RuntimeException::new);
+            plane.setCompany(company);
+        }
+        if (updateData.containsKey("inMaintenance"))
+            plane.setInMaintenance((boolean) updateData.get("inMaintenance"));
+        planeRepository.save(plane);
 
     }
 

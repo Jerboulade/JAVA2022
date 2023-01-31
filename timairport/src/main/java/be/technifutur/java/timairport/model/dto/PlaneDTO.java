@@ -13,9 +13,6 @@ public class PlaneDTO {
     private String      callSign;
     private LocalDate   registrationDate;
     private boolean     inMaintenance;
-    // private UUID     type_id;
-    // private UUID     type_name;
-    // private int      capacity;
     private TypeDTO     type;
     private CompanyDTO  company;
 

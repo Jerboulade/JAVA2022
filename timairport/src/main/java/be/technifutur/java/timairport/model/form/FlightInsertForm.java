@@ -37,41 +37,24 @@ public class FlightInsertForm {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-
     @NotNull
     @Future
     private LocalDateTime departureTime;
-
     @NotNull
     @Future
     private LocalDateTime arrivalTime;
-
     @NotNull
-    private UUID airport_departure;
-
+    private UUID airportDeparture;
     @NotNull
-    private UUID airport_destination;
-
+    private UUID airportDestination;
     @NotNull
     private UUID captain;
-
     @NotNull
     private UUID firstOfficer;
-
     @NotNull
-    private PlaneForm plane;
-
-    @Data
-    public class PlaneForm {
-        @NotNull
-        private UUID id;
-
-        @NotNull
-        private UUID type;
-
-        @NotNull
-        private UUID wanted_company;
-    }
+    private UUID wantedPlaneType;
+    @NotNull
+    private UUID wantedCompany;
 
     public Flight toEntity(){
         Flight entity = new Flight();

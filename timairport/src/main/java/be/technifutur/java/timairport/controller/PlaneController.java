@@ -24,6 +24,10 @@ public class PlaneController {
 
     @PostMapping("/add")
     public void create(@RequestBody @Valid PlaneInsertForm form){
+        System.out.println(form.getCallSign());
+        System.out.println(form.getRegistrationDate());
+        System.out.println(form.getCompanyId());
+        System.out.println(form.getTypeId());
         planeService.create(form);
     }
 
@@ -34,6 +38,7 @@ public class PlaneController {
 
     @GetMapping("/all")
     public List<PlaneDTO> getAll(){
+        System.out.println(planeService.getALL().stream().findAny().orElseThrow().getRegistrationDate());
         return planeService.getALL();
     }
 

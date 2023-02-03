@@ -34,9 +34,6 @@ public class FlightInsertForm {
     Si aucun avion possible, NoPlaneAvailableException
     */
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
     @NotNull
     @Future
     private LocalDateTime departureTime;

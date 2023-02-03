@@ -9,4 +9,8 @@ public class RessourceNotFoundException extends RuntimeException {
     public RessourceNotFoundException(Throwable cause){
         super("The requested source was not found", cause);
     }
+
+    public RessourceNotFoundException(String message) {
+        super(message);
+    }
 }

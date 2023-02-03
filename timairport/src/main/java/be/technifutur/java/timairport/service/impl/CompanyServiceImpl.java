@@ -1,16 +1,17 @@
-package be.technifutur.java.timairport.service;
+package be.technifutur.java.timairport.service.impl;
 
 import be.technifutur.java.timairport.mapper.CompanyMapper;
 import be.technifutur.java.timairport.model.dto.CompanyDTO;
 import be.technifutur.java.timairport.repository.CompanyRepository;
 import be.technifutur.java.timairport.repository.PilotRepository;
 import be.technifutur.java.timairport.repository.PlaneRepository;
+import be.technifutur.java.timairport.service.CompanyService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class CompanyServiceImpl implements CompanyService{
+public class CompanyServiceImpl implements CompanyService {
 
     private final CompanyRepository companyRepository;
     private final PlaneRepository   planeRepository;

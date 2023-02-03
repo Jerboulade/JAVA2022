@@ -20,4 +20,6 @@ public interface PlaneService {
     void updateCompany(UUID idPlane, UUID idCompany);
 
     void updateBoth(UUID idPlane, Map<String, Object> updateData);
+
+    void delete(UUID idPlane);
 }

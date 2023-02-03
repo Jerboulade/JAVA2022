@@ -1,10 +1,12 @@
 package be.technifutur.java.timairport.model.entity;
 
 import jakarta.persistence.*;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 @Entity
@@ -27,4 +29,17 @@ public class TypePlane {
 
     @OneToMany(mappedBy = "type")
     private List<Plane> planes;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TypePlane typePlane = (TypePlane) o;
+        return id.equals(typePlane.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

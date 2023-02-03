@@ -5,6 +5,7 @@ import be.technifutur.java.timairport.model.form.PlaneInsertForm;
 import be.technifutur.java.timairport.service.PlaneService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpHeaders;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -22,6 +23,7 @@ public class PlaneController {
         this.planeService = planeService;
     }
 
+    //@PreAuthorize("isAuthenticated()")
     @PostMapping("/add")
     public void create(@RequestBody @Valid PlaneInsertForm form){
         System.out.println(form.getCallSign());
@@ -31,14 +33,13 @@ public class PlaneController {
         planeService.create(form);
     }
 
-    @GetMapping("/{id}")
-    public PlaneDTO getOne(@PathVariable UUID id){
+    @GetMapping("/one")
+    public PlaneDTO getOne(@RequestParam UUID id){
         return planeService.getOne(id);
     }
 
     @GetMapping("/all")
     public List<PlaneDTO> getAll(){
-        System.out.println(planeService.getALL().stream().findAny().orElseThrow().getRegistrationDate());
         return planeService.getALL();
     }
 
@@ -60,5 +61,10 @@ public class PlaneController {
         if (params.containsKey("inMaintenance"))
             mapValues.put("inMaintenance", Boolean.parseBoolean(params.get("inMaintenance")));
         planeService.updateBoth(idPlane, mapValues);
+    }
+
+    @DeleteMapping("/delete")
+    public void delete(@RequestParam UUID idPlane){
+        planeService.delete(idPlane);
     }
 }

@@ -8,4 +8,8 @@ public class NoPlaneAvailableException extends RuntimeException{
     public NoPlaneAvailableException(Throwable cause) {
         super("No plane available!", cause);
     }
+
+    public NoPlaneAvailableException(String message) {
+        super (message);
+    }
 }

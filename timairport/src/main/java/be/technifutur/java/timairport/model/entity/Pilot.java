@@ -1,5 +1,6 @@
 package be.technifutur.java.timairport.model.entity;
 
+import be.technifutur.java.timairport.constraint.PilotXp;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,6 +22,7 @@ public class Pilot extends Person {
     private String licenseId;
 
     @Column(name = "license_acquisition", nullable = false)
+    @PilotXp(4)
     private LocalDate licenseAcquisition;
 
     @OneToMany(mappedBy = "captain")

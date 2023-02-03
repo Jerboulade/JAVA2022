@@ -1,4 +1,4 @@
-package be.technifutur.java.timairport.service;
+package be.technifutur.java.timairport.service.impl;
 
 import be.technifutur.java.timairport.exception.RessourceNotFoundException;
 import be.technifutur.java.timairport.mapper.PlaneMapper;
@@ -10,6 +10,7 @@ import be.technifutur.java.timairport.model.form.PlaneInsertForm;
 import be.technifutur.java.timairport.repository.CompanyRepository;
 import be.technifutur.java.timairport.repository.PlaneRepository;
 import be.technifutur.java.timairport.repository.TypePlaneRepository;
+import be.technifutur.java.timairport.service.PlaneService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +18,7 @@ import java.util.Map;
 import java.util.UUID;
 
 @Service
-public class PlaneServiceImpl implements PlaneService{
+public class PlaneServiceImpl implements PlaneService {
 
     private final PlaneRepository planeRepository;
     private final CompanyRepository companyRepository;
@@ -83,6 +84,11 @@ public class PlaneServiceImpl implements PlaneService{
             plane.setInMaintenance((boolean) updateData.get("inMaintenance"));
         planeRepository.save(plane);
 
+    }
+
+    @Override
+    public void delete(UUID idPlane) {
+        planeRepository.deleteById(idPlane);
     }
 
 

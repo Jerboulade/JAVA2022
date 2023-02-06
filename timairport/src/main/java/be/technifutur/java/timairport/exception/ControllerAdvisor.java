@@ -24,4 +24,9 @@ public class ControllerAdvisor {
         return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(errorDTO);
     }
 
+    @ExceptionHandler(RessourceNotFoundException.class)
+    public ResponseEntity<RessourceNotFoundException> handleRessourceNotFoundException(RessourceNotFoundException e) {
+        return ResponseEntity.notFound().build();
+    }
+
 }

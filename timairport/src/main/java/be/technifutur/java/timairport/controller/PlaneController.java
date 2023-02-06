@@ -2,10 +2,9 @@ package be.technifutur.java.timairport.controller;
 
 import be.technifutur.java.timairport.model.dto.PlaneDTO;
 import be.technifutur.java.timairport.model.form.PlaneInsertForm;
+import be.technifutur.java.timairport.service.FlightService;
 import be.technifutur.java.timairport.service.PlaneService;
 import jakarta.validation.Valid;
-import org.springframework.http.HttpHeaders;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -18,7 +17,6 @@ import java.util.UUID;
 public class PlaneController {
 
     private final PlaneService planeService;
-
     public PlaneController(PlaneService planeService) {
         this.planeService = planeService;
     }

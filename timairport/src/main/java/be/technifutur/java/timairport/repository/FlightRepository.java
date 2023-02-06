@@ -17,6 +17,7 @@ public interface FlightRepository extends JpaRepository<Flight, UUID> {
     void cancelFlight(UUID id);
 
 
+
     @Modifying
     @Transactional
     @Query("""
@@ -25,4 +26,5 @@ public interface FlightRepository extends JpaRepository<Flight, UUID> {
             WHERE f.id = ?1
             """)
     void updateSchedule(UUID id, LocalDateTime departureTime, LocalDateTime arrivalTime);
+
 }

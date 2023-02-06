@@ -1,8 +1,12 @@
 package be.technifutur.java.timairport.config;
 
+import be.technifutur.java.timairport.jwt.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -15,23 +19,24 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import java.util.List;
 
 @Configuration
 @EnableWebSecurity
-@EnableMethodSecurity(
-
-)
+//@EnableMethodSecurity
 public class SecurityConfig {
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    // customize la facon dont la sécurité basic va être gérée
+    public SecurityFilterChain securityFilterChain(HttpSecurity http, JwtAuthenticationFilter jwtFilter) throws Exception {
         // configuration de sécurité
         // désactivation de certaine sécu
         http.csrf().disable();      // seulement quand on recoit un lien qui request un token identifiant
-        http.httpBasic();
-        http.sessionManagement()    // on est en stateless, on ne veut pas que le cookie garde les differentes session en mémoire
+        http.httpBasic().disable();
+        http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+        http.sessionManagement()    // on est en stateless(pas de session persistante) on ne veut pas que le cookie (jSessionId) garde les différentes session en mémoire
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         /*
          * Les premiers matchers ont la priorité
@@ -71,25 +76,27 @@ public class SecurityConfig {
             authorize
                     //.requestMatchers(re)
                     .requestMatchers("/*/all").anonymous() // attention, le plus haut override les précédents
-                    .requestMatchers(request -> request.getRequestURI().length() > 50).hasRole("ADMIN") // pour faire des truc spécifique genre , une URi composé de plus de 50 char est accessible uniquement pas un user qui a le rôle d'admin
+                    //.requestMatchers(request -> request.getRequestURI().length() > 50).hasRole("ADMIN") // pour faire des truc spécifique genre , une URi composé de plus de 50 char est accessible uniquement pas un user qui a le rôle d'admin
                     .requestMatchers("/*/add").authenticated()  // * -> un segment d'URI
-                    .requestMatchers("/*/delete").hasAuthority("USER") // ** -> un ou plusieur segment d'URI
+                    .requestMatchers("/*/delete").hasAuthority("ROLE_USER") // ** -> un ou plusieurs segment d'URI
                     .requestMatchers("/*/update/**").hasRole("ADMIN")
                     .requestMatchers("/*/update/**").hasAuthority("ROLE_ADMIN") //-->same as above<--
                     .requestMatchers(HttpMethod.GET, "/airport/*").hasAnyRole("USER", "ADMIN")
+                    .requestMatchers(HttpMethod.POST, "/auth/signup").anonymous()
                     .anyRequest().permitAll();
         });
-
         return http.build();
     }
 
+
+    /*
     @Bean
     public UserDetailsService userDetailsService(PasswordEncoder encoder){
-        /*
-        * UserDetails
-        * -----------
-        * username, password, ..
-        */
+        // userDetailsService est un einterface qui récupère les informations du user
+        // ici, inMemory mais normalement via DB
+
+        // UserDetails
+
         List<UserDetails> users = List.of(
                 User.builder()
                         .username("user")
@@ -103,10 +110,17 @@ public class SecurityConfig {
                         .build()
         );
         return new InMemoryUserDetailsManager(users);
-    }
+    }*/
+
+
 
     @Bean
     public PasswordEncoder encoder(){
         return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
+        return configuration.getAuthenticationManager();
     }
 }

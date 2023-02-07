@@ -1,10 +1,12 @@
 package be.technifutur.java.technisandwich.controller;
 
 import be.technifutur.java.technisandwich.model.dto.SandwichDTO;
+import be.technifutur.java.technisandwich.model.entity.Sandwich;
+import be.technifutur.java.technisandwich.model.form.insert.SandwichInsertForm;
+import be.technifutur.java.technisandwich.model.form.update.SandwichUpdateForm;
 import be.technifutur.java.technisandwich.service.SandwichService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,8 +21,34 @@ public class SandwichController {
     }
 
     @GetMapping("/all")
-    public List<SandwichDTO> getAll(){
+    public List<SandwichDTO>    getAll(){
         return sandwichService.getAll();
+    }
+
+    @GetMapping("/one")
+    public SandwichDTO          getOneByName(@RequestParam String name){
+        return sandwichService.getOneByName(name);
+    }
+
+    @GetMapping("/one/{id}")
+    public SandwichDTO          getOneById(@PathVariable Long id){
+        return sandwichService.getOneById(id);
+    }
+
+    @PostMapping("/add")
+    public Long                 createSandwich(@RequestBody @Valid SandwichInsertForm form) {
+        return sandwichService.createSandwich(form);
+    }
+
+    @PatchMapping("/update/{id}")
+    public void                 updateSandwich(@RequestBody @Valid SandwichUpdateForm form,
+                                               @PathVariable Long id){
+        sandwichService.updateSandwich(id, form);
+    }
+
+    @DeleteMapping("/delete")
+    public void                 deleteSandwich(@RequestBody String name){
+        sandwichService.deleteSandwich(name);
     }
 
 }

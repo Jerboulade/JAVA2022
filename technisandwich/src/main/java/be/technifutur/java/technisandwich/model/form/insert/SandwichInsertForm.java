@@ -1,12 +1,11 @@
-package be.technifutur.java.technisandwich.model.form;
+package be.technifutur.java.technisandwich.model.form.insert;
 
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
 @Data
-public class SandwichForm {
+public class SandwichInsertForm {
 
     @NotNull
     private String  name;

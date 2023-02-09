@@ -10,6 +10,8 @@ import java.util.UUID;
 
 @Entity
 @Getter @Setter
+@Table(name = "\"order\"")
+
 public class Order {
 
     @Id
@@ -17,20 +19,21 @@ public class Order {
     @Column(name = "order_id", nullable = false)
     private UUID        id;
 
-    @Column(name = "order_date", nullable = false)
-    private LocalDate   orderDate;
+    @Column(name = "order_date")
+    private LocalDate   orderDate = LocalDate.now();
 
-    @Column(name = "delivery_date", nullable = false)
+    @Column(name = "delivery_date")
     private LocalDate   deliveryDate;
 
-    @Column(name = "discount", nullable = false)
-    private float       discount;
+    @Column(name = "discount")
+    private float       discount = 0;
 
-    @Column(name = "state", nullable = false)
-    private boolean     state;
+    @Column(name = "state")
+    private boolean     state = true;
 
     @ManyToOne
-    @JoinColumn(name = "user", nullable = false)
+    //, nullable = false
+    @JoinColumn(name = "user_id")
     private User        user;
 
     @ManyToMany

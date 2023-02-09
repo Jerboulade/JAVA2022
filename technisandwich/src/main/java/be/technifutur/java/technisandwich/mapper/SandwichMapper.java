@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 public class SandwichMapper {
 
     public SandwichDTO toDTO(Sandwich entity){
+
         return SandwichDTO.builder()
                 .id(entity.getId())
                 .name(entity.getName())
@@ -19,13 +20,14 @@ public class SandwichMapper {
                                 .username(cart.getUser().getUserName())
                                 .build())
                         .toList()
-                )
+                )*/
                 .listOrder(entity.getOrder().stream()
                         .map(order -> SandwichDTO.OrderDTO.builder()
-                                .username(order.getUser().getUserName())
+                                //.username(order.getUser().getUserName())
+                                .id(order.getId())
                                 .build())
                         .toList()
-                )*/
+                )
                 .build();
     }
 

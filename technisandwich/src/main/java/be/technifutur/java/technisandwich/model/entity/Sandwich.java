@@ -9,7 +9,6 @@ import java.util.UUID;
 
 @Entity
 @Getter @Setter
-//@Table
 public class Sandwich {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

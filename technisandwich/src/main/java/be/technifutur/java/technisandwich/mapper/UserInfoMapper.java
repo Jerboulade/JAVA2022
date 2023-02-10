@@ -5,7 +5,7 @@ import be.technifutur.java.technisandwich.model.entity.User;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserMapper {
+public class UserInfoMapper {
     public UserDTO toDTO(User entity){
         return UserDTO.builder()
                 .id(entity.getId())

@@ -1,9 +1,11 @@
 package be.technifutur.java.technisandwich.utils;
 
+import be.technifutur.java.technisandwich.mapper.RegistrationMapper;
 import be.technifutur.java.technisandwich.model.entity.Cart;
 import be.technifutur.java.technisandwich.model.entity.Order;
 import be.technifutur.java.technisandwich.model.entity.Sandwich;
 import be.technifutur.java.technisandwich.model.entity.User;
+import be.technifutur.java.technisandwich.model.form.authentication.RegistrationForm;
 import be.technifutur.java.technisandwich.repository.CartRepository;
 import be.technifutur.java.technisandwich.repository.OrderRepository;
 import be.technifutur.java.technisandwich.repository.SandwichRepository;
@@ -22,12 +24,14 @@ public class DataInit implements InitializingBean {
     private final OrderRepository       orderRepository;
     private final UserRepository        userRepository;
     private final CartRepository        cartRepository;
+    private final RegistrationMapper    registrationMapper;
 
-    public DataInit(SandwichRepository sandwichRepository, OrderRepository orderRepository, UserRepository userRepository, CartRepository cartRepository) {
+    public DataInit(SandwichRepository sandwichRepository, OrderRepository orderRepository, UserRepository userRepository, CartRepository cartRepository, RegistrationMapper registrationMapper) {
         this.sandwichRepository = sandwichRepository;
         this.orderRepository = orderRepository;
         this.userRepository = userRepository;
         this.cartRepository = cartRepository;
+        this.registrationMapper = registrationMapper;
     }
 
     @Override
@@ -47,7 +51,10 @@ public class DataInit implements InitializingBean {
         Cart cart = new Cart();
         cartRepository.save(cart);
 
-        User user = new User();
+        RegistrationForm userForm = new RegistrationForm();
+        userForm.setUsername("user1");
+        userForm.setPassword("pass");
+        User user = registrationMapper.toUser(userForm);
         user.setCart(cart);
         userRepository.save(user);
 
@@ -60,9 +67,15 @@ public class DataInit implements InitializingBean {
         // Cart to Order-------------------------------
         List<Sandwich> sandwichList= new ArrayList<>();
         sandwichList.add(sandwich);
+        sandwichList.add(sandwich);
         order.setSandwiches(sandwichList);
         //---------------------------------------------
         orderRepository.save(order);
+
+        RegistrationForm adminForm = new RegistrationForm();
+        adminForm.setUsername("admin");
+        adminForm.setPassword("admin");
+        User admin = registrationMapper.toUser(adminForm);
 
 
     }

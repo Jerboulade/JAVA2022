@@ -26,7 +26,7 @@ public class CartController {
     }
 
     @GetMapping("/see")
-    public CartDTO getCart(Authentication auth){
+    public CartDTO getCart(Authentication auth) {
         String username = auth.getPrincipal().toString();
         User user = (User) userDetailsService.loadUserByUsername(username);
         return cartService.getCart(user.getCart().getId());

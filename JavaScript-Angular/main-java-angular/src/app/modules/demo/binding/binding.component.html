@@ -1,0 +1,16 @@
+<p>binding works!</p>
+
+<h2>Property binding</h2>
+<h1>Ma variable = {{maVariable}}</h1>
+
+<input type="text" [(ngModel)] = "maVariable">
+
+<h2>Event binding</h2>
+
+<button (click)="maMethode()">Don't click</button>
+
+<h2>Attribute binding</h2>
+
+<input type="text" [(ngModel)] = "varIsClickable" [disabled]="isClickable">
+<button (mouseover)="reverseIsClickable()">reverse</button>
+

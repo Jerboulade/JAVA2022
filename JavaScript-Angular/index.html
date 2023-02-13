@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doc</title>
+    <style>
+        table,th,td{border:1px solid #cccccc}
+    </style>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <h2>lorem</h2>
+    <h2>ipsum</h2>
+    <p id="lorem"> lorem ipsum </p>
+    <input id="userInput" placeholder="Ajoute des elem ici" type="text">
+    <button onclick="onClick()" id="btn" >Click</button>
+    <ul id="listItem">
+        <li>Item 1</li>
+    </ul>
+    <table id="tab"><tr id="line">
+            <th id="category">Meuble</th>
+            <td id="price">250</td>
+            <td><button onclick="addPrice(0)">Add</button></td>
+        </tr><tr id="line">
+            <th id="category">Table</th>
+            <td id="price">150</td>
+            <td><button onclick="addPrice(1)">Add</button></td>
+        </tr><tr id="line">
+            <th id="category">Chaise</th>
+            <td id="price">25</td>
+            <td><button onclick="addPrice(2)">Add</button></td>
+        </tr>
+    </table>
+    <table id="panier">
+        <caption id="capt">PANIER</caption>
+        <tr id="somme">
+            <th id="category">Somme</th>
+            <td id="sommePrice">0</td>
+        </tr>
+    </table>
+    <br>
+    <div id="hour">
+        
+    </div>
+</body>
+<script src="./script/script.js"></script>
+</html>

@@ -1,0 +1,8 @@
+<p>{{title}}</p>
+<p>{{title | titlecase}}</p>
+<p>{{title.toUpperCase()}}</p>
+<h1>Custom pipe : temp</h1>
+<h2>Original value</h2>
+<p>value in celsius = {{celsius}}</p>
+<h2>Piped value</h2>
+<p>value in kelvin = {{celsius | temp : 'c' : 'k'}}</p>

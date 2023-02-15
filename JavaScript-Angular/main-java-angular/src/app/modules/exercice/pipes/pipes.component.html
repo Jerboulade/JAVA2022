@@ -1,0 +1,6 @@
+<br>
+<button (click) = startChrono() [disabled]=isRunning>Start</button>
+<button (click) = pauseChrono() [disabled]=!isRunning>Pause</button>
+<button (click) = resetChrono() [disabled]=isRunning>Reset</button>
+<p>Compteur :  {{cpt}}</p>
+<p>Mon super chronometre de la mort-qui-tue :  {{cpt | chrono}}</p>

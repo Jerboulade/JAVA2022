@@ -17,6 +17,7 @@ export class BindingComponent {
 
   reverseIsClickable(){
     this.isClickable = !this.isClickable
+
     if (this.isClickable)
       this.varIsClickable = "fixed"
     else

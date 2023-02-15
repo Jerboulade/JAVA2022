@@ -1,0 +1,32 @@
+<h2>Ng if</h2>
+<button (click)="setDisplay()">ON / OFF</button>
+<p *ngIf="display">Tu me vois!</p>
+
+<br>
+<h2>Ng for</h2>
+<ul>
+  <p *ngFor="let user of users">
+    {{user.name}} à {{user.age}} ans
+  </p>
+</ul>
+
+<br>
+<h2>Ng switch</h2>
+<select [(ngModel)]="selector">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+</select>
+
+<div [ngSwitch]="selector">
+  <p *ngSwitchCase="1">Vous avez selectionné le 1</p>
+  <p *ngSwitchCase="2">Vous avez selectionné le 2</p>
+  <p *ngSwitchCase="3">Vous avez selectionné le 3</p>
+  <p *ngSwitchCase="4">Vous avez selectionné le 4</p>
+  <p *ngSwitchDefault>Sélectionnez un nombre dans la liste</p>
+</div>
+
+<h2>Ng custom directive</h2>
+<p appHoverColor>Survole moi</p>
+

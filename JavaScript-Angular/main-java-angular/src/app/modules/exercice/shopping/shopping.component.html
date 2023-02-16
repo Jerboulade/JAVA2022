@@ -1,0 +1,15 @@
+<br>
+<br>
+<fieldset>
+  <legend>Parent</legend>
+  <input type="text" placeholder="Name" [(ngModel)]="nameForm">
+  <input type="number" placeholder="Price" [(ngModel)]="priceForm">
+  <button class="button" [disabled]="!isValid()" (click)="addArticle()"> Save </button>
+  <br>
+  <p>Total price : {{sum}}</p>
+  <br>
+  <fieldset>
+    <legend>Child</legend>
+    <app-list-view [articles] = "articles" (deleteEvent)="deleteArticle($event)"></app-list-view>
+  </fieldset>
+</fieldset>

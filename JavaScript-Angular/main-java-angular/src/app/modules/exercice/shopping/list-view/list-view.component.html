@@ -1,0 +1,13 @@
+<table>
+  <tr>
+    <th> N° </th>
+    <th> Name </th>
+    <th> Price </th>
+  </tr>
+  <tr *ngFor="let art of articles">
+    <td> {{articles.indexOf(art)}} </td>
+    <td> {{art.name}} </td>
+    <td> {{art.price}} </td>
+    <button (click)="sendIndexToParent(articles.indexOf(art))" > Delete </button>
+  </tr>
+</table>

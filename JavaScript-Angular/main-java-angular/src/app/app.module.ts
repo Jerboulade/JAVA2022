@@ -15,6 +15,11 @@ import { PipesComponent as PipesExComponent } from './modules/exercice/pipes/pip
 import { DirectiveComponent } from './modules/demo/directive/directive.component';
 import { StructuralDirectiveComponent } from './modules/demo/structural-directive/structural-directive.component';
 import { HoverColorDirective } from './modules/demo/custom-directive/hover-color.directive';
+import { Exo1Component } from './modules/exercice/exo1/exo1.component';
+import { InputOutputComponent } from './modules/demo/input-output/input-output.component';
+import { EnfantComponent } from './modules/demo/input-output/enfant/enfant.component';
+import { ShoppingComponent } from './modules/exercice/shopping/shopping.component';
+import { ListViewComponent } from './modules/exercice/shopping/list-view/list-view.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +34,11 @@ import { HoverColorDirective } from './modules/demo/custom-directive/hover-color
     DirectiveComponent,
     StructuralDirectiveComponent,
     HoverColorDirective,
+    Exo1Component,
+    InputOutputComponent,
+    EnfantComponent,
+    ShoppingComponent,
+    ListViewComponent,
   ],
   imports: [
     BrowserModule,

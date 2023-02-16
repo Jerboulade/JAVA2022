@@ -1,0 +1,25 @@
+<br>
+<div class="container">
+  <input type="text" placeholder="Prenom" [(ngModel)]="nameModel">
+  <input type="text" placeholder="Age" [(ngModel)]="ageModel">
+  <button class="button" [disabled]="nameModel == '' || ageModel <= 0 || hasDuplicate" (click)="saveUser()"> Save </button>
+</div>
+<br>
+
+<div class="container">
+  <table *ngIf="users.length != 0">
+    <tr>
+      <th>N°</th>
+      <th>Name</th>
+      <th>Age</th>
+    </tr>
+    <tr *ngFor="let user of users">
+      <td>{{users.indexOf(user)}}</td>
+      <td>{{user.name}}</td>
+      <td>{{user.age}}</td>
+      <button class="button" (click)="deleteUser(users.indexOf(user))">delete</button>
+    </tr>
+  </table>
+</div>
+
+

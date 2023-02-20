@@ -1,0 +1,11 @@
+<p>table2 works!</p>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+  <tr   *ngFor="let user of users">
+    <td>{{ user.name }}</td>
+    <td>{{ user.email }}</td>
+    <button class="button" (click)="removeUser(users.indexOf(user))">Delete</button>
+  </tr>
+</table>

@@ -1,0 +1,40 @@
+<br>
+<br>
+<fieldset>
+  <legend>Formulaire [formGroup]</legend>
+  <form [formGroup]="formGroup" (ngSubmit)="submit()">
+    <table>
+      <tr>
+        <td><label>Username</label></td>
+        <td><input type="text" formControlName="userName"></td>
+      </tr>
+      <tr>
+        <td><label>Mail</label></td>
+        <td><input type="email" formControlName="email"></td>
+      </tr>
+      <tr>
+        <td><label>Password</label></td>
+        <td><input type="password" formControlName="password"></td>
+      </tr>
+    </table>
+    <button type="submit" [disabled]="!formGroup.valid">Submit</button>
+  </form>
+</fieldset>
+
+<br>
+
+<fieldset>
+  <legend>Formulaire [formGroup + FormArray]</legend>
+  <form [formGroup]="formGroupArray">
+
+  <table *ngFor="let ctrl of getArray().controls; let i = index">
+    <tr formArrayName="groupArray">
+      <td>{{ i + 1 }}</td>
+      <td><input type="text" [formControlName]="i"></td>
+      <button (click)="removeControl(i)" *ngIf="i!=0"> Remove </button>
+    </tr>
+  </table>
+  <button (click)="addControl()"> MOOOORE </button>
+  <button type="submit" [disabled]="!formGroupArray.valid" (click)="submitArray()"> Validate </button>
+</form>
+</fieldset>

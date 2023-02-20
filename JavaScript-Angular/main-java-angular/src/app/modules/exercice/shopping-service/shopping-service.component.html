@@ -1,0 +1,21 @@
+<fieldset>
+  <br>
+  <legend> Shopping list : service exercice </legend>
+    <input type="text" placeholder="Name" [(ngModel)]="nameForm">
+    <input type="number" placeholder="Price" [(ngModel)]="priceForm">
+    <button class="button" [disabled]="!isValid()" (click)="addArticle()"> Add </button>
+
+  <table>
+    <tr>
+      <th> N° </th>
+      <th> Name </th>
+      <th> Qty </th>
+    </tr>
+    <tr *ngFor="let art of articles">
+      <td> {{articles.indexOf(art)}} </td>
+      <td> {{art.name}} </td>
+      <td> {{art.price}} </td>
+      <button (click)="removeArticle(articles.indexOf(art))" > Delete </button>
+    </tr>
+  </table>
+</fieldset>

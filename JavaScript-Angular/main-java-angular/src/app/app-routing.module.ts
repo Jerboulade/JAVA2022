@@ -10,19 +10,25 @@ import { StructuralDirectiveComponent } from './modules/demo/structural-directiv
 import { Exo1Component } from './modules/exercice/exo1/exo1.component';
 import { InputOutputComponent } from './modules/demo/input-output/input-output.component';
 import { ShoppingComponent } from './modules/exercice/shopping/shopping.component';
+import { MainComponent } from './modules/demo/services/main/main.component';
+import { ShoppingServiceComponent } from './modules/exercice/shopping-service/shopping-service.component';
+import { FormulaireComponent } from './modules/demo/formulaire/formulaire.component';
 
 const routes: Routes = [
   { path : 'exercice', component : MainExerciceComponent, children : [
     { path : 'pipes', component : PipesExComponent },
     { path : 'exo1', component : Exo1Component },
-    { path : 'shopping', component : ShoppingComponent}
+    { path : 'shopping', component : ShoppingComponent},
+    { path: 'shopping_service', component : ShoppingServiceComponent}
   ]},
   { path : 'demo', component : MainDemoComponent, children : [
     { path : 'binding', component : BindingComponent },
     { path : 'pipes', component : PipesComponent },
     { path : 'directive', component : DirectiveComponent },
     { path : 'structural-directive', component : StructuralDirectiveComponent },
-    { path : 'input-output', component : InputOutputComponent }
+    { path : 'input-output', component : InputOutputComponent },
+    { path : 'services', component : MainComponent },
+    { path : 'formulaire', component : FormulaireComponent }
   ]}
 ];
 

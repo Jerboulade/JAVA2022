@@ -1,0 +1,21 @@
+<fieldset>
+  <legend>Log in</legend>
+  <p style="color: red;" *ngIf="message != ''">{{message}}</p>
+  <form [formGroup]="loginForm">
+    <table>
+      <tr>
+        <td><label>Pseudo / Email</label></td>
+        <td><input type="text, email" formControlName="identity"></td>
+      </tr>
+      <tr>
+        <td><label>Password</label></td>
+        <td><input type="password" formControlName="password"></td>
+      </tr>
+      <tr>
+        <td> </td>
+        <button type="submit" [disabled]="!loginForm.valid" (click)="login()">Log in</button>
+      </tr>
+    </table>
+
+  </form>
+</fieldset>

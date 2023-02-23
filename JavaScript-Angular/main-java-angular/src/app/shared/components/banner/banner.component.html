@@ -1,4 +1,8 @@
 <div class="navbar">
   <a routerLink="/demo">Demo </a>
   <a routerLink="/exercice">My Work </a>
+  <div *ngIf="pseudo != undefined" style="float: inline-end;">
+    <p style="color: white;" >{{pseudo}} : <a style="color: white;" *ngIf="pseudo != undefined" (click)="logout()">Logout</a><p>
+  </div>
+
 </div>

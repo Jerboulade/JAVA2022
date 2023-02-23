@@ -1,0 +1,33 @@
+<fieldset>
+  <legend>Register</legend>
+  <p style="color: red;" *ngIf="message != ''">{{message}}</p>
+  <form [formGroup]="registerForm">
+    <table>
+      <tr>
+        <td><label>Pseudo</label></td>
+        <td><input type="text" formControlName="pseudo"></td>
+      </tr>
+      <tr>
+        <td><label>Email</label></td>
+        <td><input type="email" formControlName="email"></td>
+      </tr>
+      <tr>
+        <td><label>Password</label></td>
+        <td><input type="password" formControlName="password"></td>
+      </tr>
+      <tr>
+        <td><label>Confirm password</label></td>
+        <td><input type="password" formControlName="confirmation"></td>
+      </tr>
+      <tr>
+        <td>Accept condition</td>
+        <td><input type="checkbox" formControlName="cluf"></td>
+      </tr>
+      <tr>
+        <td> </td>
+        <button type="submit" [disabled]="!registerForm.valid" (click)="register()">Submit</button>
+      </tr>
+    </table>
+
+  </form>
+</fieldset>

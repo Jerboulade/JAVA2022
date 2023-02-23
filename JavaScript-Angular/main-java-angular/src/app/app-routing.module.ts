@@ -13,13 +13,21 @@ import { ShoppingComponent } from './modules/exercice/shopping/shopping.componen
 import { MainComponent } from './modules/demo/services/main/main.component';
 import { ShoppingServiceComponent } from './modules/exercice/shopping-service/shopping-service.component';
 import { FormulaireComponent } from './modules/demo/formulaire/formulaire.component';
+import { AuthFormComponent } from './modules/exercice/auth-form/auth-form.component';
+import { RegisterComponent } from './modules/exercice/auth-form/register/register.component';
+import { LoginComponent } from './modules/exercice/auth-form/login/login.component';
 
 const routes: Routes = [
   { path : 'exercice', component : MainExerciceComponent, children : [
     { path : 'pipes', component : PipesExComponent },
     { path : 'exo1', component : Exo1Component },
     { path : 'shopping', component : ShoppingComponent},
-    { path: 'shopping_service', component : ShoppingServiceComponent}
+    { path : 'shopping_service', component : ShoppingServiceComponent},
+    { path : 'auth-form', component : AuthFormComponent, children : [
+      { path : 'register', component : RegisterComponent },
+      { path : 'login', component : LoginComponent }
+    ]}
+
   ]},
   { path : 'demo', component : MainDemoComponent, children : [
     { path : 'binding', component : BindingComponent },

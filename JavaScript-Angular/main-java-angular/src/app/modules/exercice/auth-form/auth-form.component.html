@@ -1,0 +1,26 @@
+<br>
+<div class="container">
+  <fieldset>
+    <legend>Auth</legend>
+    <h2 *ngIf="loggedAs != undefined" >Logged as <span >{{loggedAs}}</span></h2>
+    <p style="color: red;" *ngIf="message != ''">{{message}}</p>
+    <br>
+    <button *ngIf="loggedAs != undefined" (click)="logout()" class="button2">
+      <td>Logout</td>
+    </button>
+  </fieldset>
+  <br>
+  <button *ngIf="loggedAs == undefined" class="button2">
+    <td routerLink="/exercice/auth-form/register">Register</td>
+  </button>
+  <br>
+  <br>
+  <button *ngIf="loggedAs == undefined" class="button2">
+    <td routerLink="/exercice/auth-form/login">Login</td>
+  </button>
+</div>
+<br>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+

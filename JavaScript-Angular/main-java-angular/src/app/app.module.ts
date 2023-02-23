@@ -25,6 +25,9 @@ import { Table1Component } from './modules/demo/services/table1/table1.component
 import { Table2Component } from './modules/demo/services/table2/table2.component';
 import { ShoppingServiceComponent } from './modules/exercice/shopping-service/shopping-service.component';
 import { FormulaireComponent } from './modules/demo/formulaire/formulaire.component';
+import { RegisterComponent } from './modules/exercice/auth-form/register/register.component';
+import { LoginComponent } from './modules/exercice/auth-form/login/login.component';
+import { AuthFormComponent } from './modules/exercice/auth-form/auth-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +52,9 @@ import { FormulaireComponent } from './modules/demo/formulaire/formulaire.compon
     Table2Component,
     ShoppingServiceComponent,
     FormulaireComponent,
+    RegisterComponent,
+    LoginComponent,
+    AuthFormComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,13 @@
+<br>
+<fieldset>
+  <legend>Profile</legend>
+  <table>
+    <ng-container *ngFor="let h of headers">
+      <tr>
+        <th> {{ h }}</th>
+        <td *ngIf="user != undefined"> {{ user[h] }}</td>
+      </tr>
+    </ng-container>
+  </table>
+
+</fieldset>

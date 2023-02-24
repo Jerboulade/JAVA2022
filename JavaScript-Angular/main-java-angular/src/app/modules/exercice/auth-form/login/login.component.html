@@ -1,7 +1,7 @@
 <fieldset>
   <legend>Log in</legend>
   <p style="color: red;" *ngIf="message != ''">{{message}}</p>
-  <form [formGroup]="loginForm">
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
     <table>
       <tr>
         <td><label>Pseudo / Email</label></td>
@@ -13,7 +13,7 @@
       </tr>
       <tr>
         <td> </td>
-        <button type="submit" [disabled]="!loginForm.valid" (click)="login()">Log in</button>
+        <button [disabled]="!loginForm.valid">Log in</button>
       </tr>
     </table>
 

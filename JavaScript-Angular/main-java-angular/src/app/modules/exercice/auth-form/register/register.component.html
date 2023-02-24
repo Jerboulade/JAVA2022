@@ -1,7 +1,7 @@
 <fieldset>
   <legend>Register</legend>
   <p style="color: red;" *ngIf="message != ''">{{message}}</p>
-  <form [formGroup]="registerForm">
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
     <table>
       <tr>
         <td><label>Pseudo</label></td>
@@ -25,7 +25,7 @@
       </tr>
       <tr>
         <td> </td>
-        <button type="submit" [disabled]="!registerForm.valid" (click)="register()">Submit</button>
+        <button [disabled]="!registerForm.valid" >Submit</button>
       </tr>
     </table>
 

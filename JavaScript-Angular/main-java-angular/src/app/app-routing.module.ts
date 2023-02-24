@@ -37,7 +37,13 @@ const routes: Routes = [
     { path : 'input-output', component : InputOutputComponent },
     { path : 'services', component : MainComponent },
     { path : 'formulaire', component : FormulaireComponent }
-  ]}
+  ]},
+  { path : 'module', loadChildren : () => import('./modules/my-module/my-module.module').then(m => m.MyModuleModule) },
+  { path : 'users', loadChildren : () => import('./modules/users/users.module').then(m => m.UsersModule) }
+
+
+  /*,
+  { path : '**', redirectTo : 'notFound' }*/
 ];
 
 @NgModule({

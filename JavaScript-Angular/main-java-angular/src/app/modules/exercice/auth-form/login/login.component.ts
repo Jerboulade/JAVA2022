@@ -8,6 +8,7 @@ import { AuthService } from 'src/app/shared/services/auth/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+
   constructor( private _autService : AuthService, private _formBuilder : FormBuilder){}
 
   message : string = "";
@@ -16,8 +17,9 @@ export class LoginComponent {
     password : ['', [Validators.required, Validators.minLength(8)]]
   })
 
-  login(){
+  login() {
     let values = this.loginForm.value
     this.message = this._autService.login(values.identity, values.password);
   }
+
 }

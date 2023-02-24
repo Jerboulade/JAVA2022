@@ -1,0 +1,25 @@
+<div class="navbar2">
+  <a routerLink="/users/read-user">Read user</a>
+</div>
+<br>
+<div class="container">
+  <fieldset>
+    <legend>Main-user</legend>
+      <table>
+        <tr>
+          <td><label>Entrez un email</label></td>
+          <td><input type="text, email" [(ngModel)]="email"></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><button type="submit" (click)="submit()">Submit</button></td>
+        </tr>
+      </table>
+  </fieldset>
+</div>
+
+
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

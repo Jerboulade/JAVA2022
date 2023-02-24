@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserModel } from '../../model/user-model/user-model.model';
 
 @Injectable({
@@ -9,7 +10,7 @@ export class AuthService {
   users : UserModel[] = [];
   loggedAs! : UserModel | undefined;
 
-  constructor() { }
+  constructor(private _router : Router) { }
 
   register(pseudo : string, email : string, password : string ) : string {
     if ( this.users.find( user => user.email == email ) )
@@ -23,6 +24,7 @@ export class AuthService {
     }
     this.users.push(newUser)
     this.loggedAs = newUser;
+    setTimeout(() => {this._router.navigate(['/exercice/auth-form'])}, 2000)
     return ( "Register successfully : " + newUser.pseudo );
   }
 
@@ -35,6 +37,7 @@ export class AuthService {
     if (user.password != password)
       return "Not a valid password";
     this.loggedAs = user;
+    setTimeout(() => {this._router.navigate(['/exercice/auth-form'])}, 2000)
     return ("Logged as " + user.pseudo);
   }
 

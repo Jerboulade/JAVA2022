@@ -1,0 +1,21 @@
+<br>
+<br>
+<button routerLink="../create" >Add new article</button>
+<br>
+<br>
+<fieldset>
+  <legend>All articles</legend>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Price </th>
+    </tr>
+    <tr *ngFor="let article of articles">
+      <td>{{article.name}}</td>
+      <td>{{article.price}}</td>
+      <td><button [routerLink]="['../', article.id]">see</button></td>
+      <td><button [routerLink]="['../update/', article.id]">update</button></td>
+      <td><button>delete</button></td>
+    </tr>
+  </table>
+</fieldset>

@@ -1,0 +1,16 @@
+<br>
+<br>
+<fieldset>
+  <legend>{{selectedAnimal?.name}}</legend>
+  <table *ngIf="selectedAnimal == undefined">
+    <tr>undefined!!!!!!!!!!!!!!!!</tr>
+  </table>
+  <table *ngIf="selectedAnimal != undefined">
+    <tr><td>Race : {{selectedAnimal.race}} </td></tr>
+    <!-- <tr><td>Name : {{selectedAnimal.name}}</td></tr> -->
+    <tr><td>Birthdate : {{selectedAnimal.birthdate | date : 'dd/MM/yyyy'}} </td></tr>
+    <tr><td>Coat : {{selectedAnimal.coat}} </td></tr>
+    <tr><td>Owner : {{selectedAnimal.owner}} </td></tr>
+  </table>
+</fieldset>
+<button class="button" routerLink="../">Retour</button>

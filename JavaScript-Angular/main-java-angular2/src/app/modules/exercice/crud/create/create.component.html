@@ -1,0 +1,25 @@
+<br>
+<fieldset>
+  <legend>Describe new article here</legend>
+  <form [formGroup]="articleForm" (ngSubmit)="addArticle()">
+    <table>
+      <tr>
+        <td><label>Name : </label></td>
+        <td><input type="text" formControlName="name"></td>
+      </tr>
+      <tr>
+        <td><label>Price : </label></td>
+        <td><input type="number" formControlName="price"></td>
+      </tr>
+      <tr>
+        <td><label>Category : </label></td>
+        <td><input type="text" formControlName="category"></td>
+      </tr>
+      <tr>
+        <td><label>Description : </label></td>
+        <td><input type="text" formControlName="description"></td>
+      </tr>
+    </table>
+    <button [disabled]="!articleForm.valid">ADD</button>
+  </form>
+</fieldset>

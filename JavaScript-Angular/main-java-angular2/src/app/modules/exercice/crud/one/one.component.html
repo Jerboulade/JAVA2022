@@ -1,0 +1,12 @@
+<br>
+<fieldset>
+  <legend>{{article?.name}}</legend>
+  <table>
+    <ng-container  *ngFor="let h of headers">
+      <tr>
+        <th>{{ h }}</th>
+        <td *ngIf="article != undefined">{{ article[h] }}</td>
+      </tr>
+    </ng-container>
+  </table>
+</fieldset>

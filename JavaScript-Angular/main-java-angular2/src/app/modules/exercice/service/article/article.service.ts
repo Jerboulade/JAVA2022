@@ -8,7 +8,9 @@ import { ExerciceModule } from '../../exercice.module';
 })
 export class ArticleService {
 
-  constructor() { }
+  constructor() {
+    this.compteur = this.articles.length + 1
+  }
 
   articles : Article[] = [
     {
@@ -16,19 +18,26 @@ export class ArticleService {
       name : "Sherman",
       price : 10000000,
       category : "tank",
-      creationDate : new Date("28/06/1914"),
+      creationDate : new Date("06/28/1914"),
       description : "Bon gros camion qui tire des obus",
       rate : 5
     }
   ];
+  compteur : number;
 
   addArticle(article : Article)  : string {
     this.articles.push(article);
+    this.compteur++;
     return "Article " + article.name + " created";
   }
 
   updateArticle(updated : Article){
-    let art : Article | undefined = this.articles.find(artt => artt.id == updated.id)
-    art = updated;
+    let i : number = this.articles.findIndex(art => art.id == updated.id)
+    this.articles[i] = updated;
+  }
+
+  removeArticle(id : number){
+    let i : number = this.articles.findIndex(art => art.id == id)
+    this.articles.splice(i, 1);
   }
 }

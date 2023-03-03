@@ -1,0 +1,14 @@
+<br>
+<h1 *ngIf="!pokemon" style="text-align: center;">{{ errorMessage }}</h1>
+<fieldset *ngIf="pokemon">
+  <legend>{{pokemon.name}}</legend>
+  <table >
+    <tr>{{pokemon.id}}</tr>
+    <ng-container  *ngFor="let h of headers">
+      <tr>
+        <th>{{ h }}</th>
+        <td>{{ pokemon[h] }}</td>
+      </tr>
+    </ng-container>
+  </table>
+</fieldset>

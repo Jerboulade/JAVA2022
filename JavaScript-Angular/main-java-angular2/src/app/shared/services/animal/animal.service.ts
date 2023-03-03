@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ExerciceRoutingModule } from 'src/app/modules/exercice/exercice-routing.module';
 import { Animal } from '../../models/animal';
 
 @Injectable({
@@ -19,8 +20,8 @@ export class AnimalService {
     id : 2,
     name : 'Sushi',
     birthdate : new Date("10/01/2019"),
-    race : "Chat",
-    coat : "Gris metal",
+    race : "Poisson",
+    coat : "Rouge",
     owner : "Benjamin"
   },
   {
@@ -36,16 +37,16 @@ export class AnimalService {
     name : 'Cubitus',
     birthdate : new Date("07/05/2014"),
     race : "Chien",
-    coat : "Brun",
-    owner : "Mathieu"
+    coat : "Blanc",
+    owner : "Semaphore"
   },
   {
     id : 5,
     name : 'Semaphore',
     birthdate : new Date("03/01/2016"),
-    race : "Chien",
-    coat : "Brun",
-    owner : "Mathieu"
+    race : "Humain",
+    coat : "Rose",
+    owner : "Cubitus"
   },
   ];
 }

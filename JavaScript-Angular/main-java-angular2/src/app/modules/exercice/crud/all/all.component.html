@@ -1,6 +1,6 @@
 <br>
 <br>
-<button routerLink="../create" >Add new article</button>
+<button style="align-self: auto;" routerLink="../create" >➕</button>
 <br>
 <br>
 <fieldset>
@@ -8,14 +8,16 @@
   <table>
     <tr>
       <th>Name</th>
+      <th>Category</th>
       <th>Price </th>
     </tr>
     <tr *ngFor="let article of articles">
       <td>{{article.name}}</td>
+      <td>{{article.category}}</td>
       <td>{{article.price}}</td>
-      <td><button [routerLink]="['../', article.id]">see</button></td>
-      <td><button [routerLink]="['../update/', article.id]">update</button></td>
-      <td><button>delete</button></td>
+      <td><button title="Details" [routerLink]="['../', article.id]">🔍</button></td>
+      <td><button title="Modify" [routerLink]="['../update/', article.id]">🔨</button></td>
+      <td><button title="Delete" (click)="removeArticle(article.id)">💥</button></td>
     </tr>
   </table>
 </fieldset>

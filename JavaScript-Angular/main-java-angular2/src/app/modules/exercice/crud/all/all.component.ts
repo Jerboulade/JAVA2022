@@ -15,4 +15,9 @@ export class AllComponent{
     return this._articleService.articles;
   }
 
+  removeArticle(id : number){
+    this._articleService.removeArticle(id);
+    console.log(id)
+  }
+
 }

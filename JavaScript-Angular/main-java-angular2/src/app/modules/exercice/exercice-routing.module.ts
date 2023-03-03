@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from 'src/app/shared/guard/auth/auth.guard';
 import { AllComponent } from './crud/all/all.component';
 import { CreateComponent } from './crud/create/create.component';
 import { OneComponent } from './crud/one/one.component';
@@ -8,10 +9,9 @@ import { ExerciceBannerComponent } from './exercice-banner/exercice-banner.compo
 
 const routes: Routes = [
   { path : '', component : ExerciceBannerComponent, children :  [
-    { path : 'article/all', component : AllComponent },
+    { path : 'article/all', component : AllComponent, canActivate : [AuthGuard] },
     { path : 'article/create', component : CreateComponent },
     { path : 'article/:id', component : OneComponent },
-
     { path : 'article/update/:id', component : UpdateComponent }
   ] }
 

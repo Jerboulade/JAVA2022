@@ -22,7 +22,7 @@ export class CreateComponent {
 
   addArticle(){
     let article : Article = {
-      id : this._articleService.articles.length + 1,
+      id : this._articleService.compteur,
       name : this.articleForm.value.name,
       price : this.articleForm.value.price,
       category : this.articleForm.value.category,

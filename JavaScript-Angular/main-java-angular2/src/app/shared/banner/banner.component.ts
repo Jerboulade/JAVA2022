@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-banner',
@@ -7,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class BannerComponent {
 
+  constructor(private _authService : AuthService){}
+
+  connect(){
+    this._authService.connect();
+  }
+
+  disconnect(){
+    this._authService.disconnect();
+  }
+
+  get isConnected() : boolean{
+    return this._authService.isConnect;
+  }
 }

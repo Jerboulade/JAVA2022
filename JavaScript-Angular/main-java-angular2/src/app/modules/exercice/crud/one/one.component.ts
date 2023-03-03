@@ -19,7 +19,8 @@ export class OneComponent implements OnInit{
   ngOnInit(): void {
     let id = this._activatedRoute.snapshot.params['id'];
     this.article = this._articleService.articles.find(a => a.id == id);
-    this.headers = Object.keys(this.article as Article);
+    if (this.article)
+      this.headers = Object.keys(this.article as Article);
   }
 
 }

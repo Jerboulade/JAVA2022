@@ -1,11 +1,12 @@
 <br>
-<fieldset>
-  <legend>{{article?.name}}</legend>
-  <table>
+<h1 *ngIf="!article" style="text-align: center;">ARTICLE NOT FOUND</h1>
+<fieldset *ngIf="article">
+  <legend>{{article.name}}</legend>
+  <table >
     <ng-container  *ngFor="let h of headers">
       <tr>
         <th>{{ h }}</th>
-        <td *ngIf="article != undefined">{{ article[h] }}</td>
+        <td>{{ article[h] }}</td>
       </tr>
     </ng-container>
   </table>

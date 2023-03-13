@@ -1,0 +1,11 @@
+<fieldset>
+  <legend>stats</legend>
+  <table>
+    <ng-container *ngFor="let s of stats">
+      <tr>
+        <td>{{ s.stat.name }}</td>
+        <td>{{ s.base_stat }}</td>
+      </tr>
+    </ng-container>
+  </table>
+</fieldset>

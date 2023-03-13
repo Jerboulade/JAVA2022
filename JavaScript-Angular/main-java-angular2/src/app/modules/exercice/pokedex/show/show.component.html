@@ -1,0 +1,31 @@
+<br>
+<fieldset *ngIf="pokemon">
+  <legend>{{pokemon.name.toUpperCase()}}</legend>
+  <img src="{{ pokemon.sprites.front_default }}" style="height: 128px; width: 128px;">
+  <table >
+    <tr>
+      <th>Id</th>
+      <td>{{ pokemon.id }}</td>
+    </tr>
+    <tr>
+      <th>Height</th>
+      <td>{{ pokemon.height }}</td>
+    </tr>
+    <tr>
+      <th>Weight</th>
+      <td>{{ pokemon.weight }}</td>
+    </tr>
+    <tr>
+      <th>Base XP</th>
+      <td>{{ pokemon.base_experience }}</td>
+    </tr>
+  </table>
+</fieldset>
+
+
+<h1> {{ errorMessage }} </h1>
+<app-stat [stats]="pokemon?.stats"></app-stat>
+<br>
+<app-type [types]="pokemon?.types"></app-type>
+<br>
+<button routerLink='..' routerLinkActive="router-link-active" >Back</button>

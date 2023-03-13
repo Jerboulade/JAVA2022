@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Pokemon } from 'src/app/shared/models/pokemon';
 import { PokeService } from 'src/app/shared/services/poke/poke.service';
 
@@ -9,17 +10,19 @@ import { PokeService } from 'src/app/shared/services/poke/poke.service';
 })
 export class HttpClientComponent implements OnInit {
 
-  constructor(private _pokeService : PokeService){}
+  constructor(private _pokeService : PokeService, private _activatedRoutes : ActivatedRoute){}
 
   pokemon! : Pokemon;
-  headers : string[] = [];
+  ///headers : string[] = [];
   errorMessage : string = "";
+  pokemon2! : Pokemon;
 
   ngOnInit(): void {
     this._pokeService.getPikachu().subscribe({
       next : (data) => {
         this.pokemon = data;
-        console.log(this.pokemon);
+        //this.headers = Object.keys(this.pokemon as Pokemon);
+        //console.log(this.pokemon);
       },
       error : (err) => {
         switch(err.status){
@@ -30,8 +33,14 @@ export class HttpClientComponent implements OnInit {
         }
       }
     });
-    this.headers = Object.keys(this.pokemon as Pokemon);
-    console.log(this.headers)
+    // --------------
+    let data = this._activatedRoutes.snapshot.data['pikachu'];
+    if (data.error){
+      this.errorMessage = data.error.statusText;
+    }
+    else{
+      this.pokemon2 = data;
+    }
   }
 
 

@@ -1,0 +1,6 @@
+<fieldset>
+  <legend>types</legend>
+  <ul *ngFor="let t of types">
+    <li [ngClass]=" t.type.name "> {{ t.type.name.toUpperCase() }} </li>
+  </ul>
+</fieldset>

@@ -9,6 +9,10 @@ import { AllComponent } from './crud/all/all.component';
 import { OneComponent } from './crud/one/one.component';
 import { ArticleService } from './service/article/article.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PokedexComponent } from './pokedex/pokedex.component';
+import { TypeComponent } from 'src/app/shared/component/type/type.component';
+import { StatComponent } from 'src/app/shared/component/stat/stat.component';
+import { ShowComponent } from './pokedex/show/show.component';
 
 
 @NgModule({
@@ -17,12 +21,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     UpdateComponent,
     ExerciceBannerComponent,
     AllComponent,
-    OneComponent
+    OneComponent,
+    PokedexComponent,
+    TypeComponent,
+    StatComponent,
+    ShowComponent
   ],
   imports: [
     CommonModule,
     ExerciceRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     ArticleService

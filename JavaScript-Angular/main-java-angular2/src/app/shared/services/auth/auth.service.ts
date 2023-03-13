@@ -10,18 +10,17 @@ export class AuthService {
   constructor() { }
 
   connect(){
-    localStorage.setItem('connected', 'true');
-    //this.isConnected = true;
+    localStorage.setItem('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c');
+    this.isConnected = true;
   }
 
   disconnect(){
-    localStorage.removeItem('connected')
-    //this.isConnected = false;
+    localStorage.removeItem('token')
+    this.isConnected = false;
   }
 
   get isConnect() : boolean{
-    //return this.isConnected;
-    let connected : string | null = localStorage.getItem('connected');
-    return connected == 'true';
+    return this.isConnected;
+    //return localStorage.getItem('token') != undefined;
   }
 }

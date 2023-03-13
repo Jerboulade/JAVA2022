@@ -1,14 +1,50 @@
 <br>
-<h1 *ngIf="!pokemon" style="text-align: center;">{{ errorMessage }}</h1>
+<h1 style="text-align: center;">{{ errorMessage }}</h1>
 <fieldset *ngIf="pokemon">
-  <legend>{{pokemon.name}}</legend>
+  <legend>HTTP_CLIENT : {{pokemon.name.toUpperCase()}}</legend>
   <table >
-    <tr>{{pokemon.id}}</tr>
-    <ng-container  *ngFor="let h of headers">
-      <tr>
-        <th>{{ h }}</th>
-        <td>{{ pokemon[h] }}</td>
-      </tr>
-    </ng-container>
+    <tr>
+      <th>Id</th>
+      <td>{{ pokemon.id }}</td>
+    </tr>
+    <tr>
+      <th>Height</th>
+      <td>{{ pokemon.height }}</td>
+    </tr>
+    <tr>
+      <th>Weight</th>
+      <td>{{ pokemon.weight }}</td>
+    </tr>
+    <tr>
+      <th>Base XP</th>
+      <td>{{ pokemon.base_experience }}</td>
+    </tr>
+  </table>
+</fieldset>
+<br>
+<!-- <h1 *ngIf="!pokemon2" style="text-align: center;">{{ errorMessage }}</h1> -->
+<fieldset *ngIf="pokemon2">
+  <legend>RESOLVER : {{pokemon2.name.toUpperCase()}}</legend>
+  <table >
+    <tr>
+      <th>Id</th>
+      <td>{{ pokemon2.id }}</td>
+    </tr>
+    <tr>
+      <th>type</th>
+      <td>{{ pokemon2.types[0].type.name }}</td>
+    </tr>
+    <tr>
+      <th>Height</th>
+      <td>{{ pokemon2.height }}</td>
+    </tr>
+    <tr>
+      <th>Weight</th>
+      <td>{{ pokemon2.weight }}</td>
+    </tr>
+    <tr>
+      <th>Base XP</th>
+      <td>{{ pokemon2.base_experience }}</td>
+    </tr>
   </table>
 </fieldset>

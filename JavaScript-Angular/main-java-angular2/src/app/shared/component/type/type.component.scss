@@ -1,0 +1,53 @@
+li{
+  font-weight: bold;
+  //S-webkit-text-stroke: 0.5px lightslategray;
+  text-shadow: 1px 1px 5px gray;
+}
+
+.normal{
+  color: lightslategray;
+}
+
+.fire{
+  color: red;
+}
+
+.grass{
+  color: green;
+}
+
+.water{
+  color: blue;
+}
+
+.poison, .bug {
+  color: purple;
+}
+
+.electric{
+  color: yellow;
+}
+
+.flying, .dragon{
+  color: darkcyan;
+}
+
+.ground{
+  color: maroon;
+}
+
+.rock{
+  color: brown;
+}
+
+.fighting{
+  color: rgb(178, 0, 0);
+}
+
+.psychic{
+  color: darkorchid;
+}
+
+.fairy{
+  color: deeppink;
+}

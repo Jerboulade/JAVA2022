@@ -4,6 +4,8 @@ public abstract class CanardStrategy{
 
     private ComportementDeVol vol;
     private ComportementDeCancan cancan;
+
+
     public CanardStrategy(ComportementDeVol vol, ComportementDeCancan cancan) {
         this.vol = vol;
         this.cancan = cancan;

@@ -6,6 +6,8 @@ import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { SecurityModule } from './shared/security/security.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,8 @@ import { CoreModule } from './core/core.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    CoreModule
+    CoreModule,
+    SecurityModule
   ],
   providers: [],
   bootstrap: [AppComponent]

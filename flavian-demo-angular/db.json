@@ -1,4 +1,11 @@
 {
+  "users": [
+    {
+      "email": "flavian.ovyn@bstorm.be",
+      "password": "$2a$10$Pbe0N6I0Ym79ZIU8NuRub.0.6j5nSmDkPbfQBL7B6cdX2fu5UbwSy",
+      "id": 1
+    }
+  ],
   "workers": [
     {
       "firstname": "Flavian",
@@ -19,23 +26,17 @@
       "id": 3
     },
     {
-      "firstname": "Jerom",
-      "lastname": "Carere",
-      "department": "fhiusqhrgf",
+      "firstname": "hk",
+      "lastname": "nlk",
+      "department": "h",
       "id": 4
-    },
-    {
-      "firstname": "grd",
-      "lastname": "gdr",
-      "department": null,
-      "id": 5
-    },
-    {
-      "firstname": "hg",
-      "lastname": "g",
-      "department": "gdr",
-      "id": 6
     }
   ],
-  "timesheets": []
+  "timesheets": [],
+  "roles": [
+    {
+      "user_id": 1,
+      "label": "ROLE_WORKER"
+    }
+  ]
 }

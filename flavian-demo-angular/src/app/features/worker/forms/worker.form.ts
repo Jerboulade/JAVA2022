@@ -7,3 +7,10 @@ export function fWorkerCreate(): FormGroup {
         department: new FormControl(null)
     })
 }
+
+export function fWorkerLogin(): FormGroup {
+  return new FormGroup({
+      username: new FormControl(null, [Validators.required]),
+      password: new FormControl(null, [Validators.required])
+  })
+}
